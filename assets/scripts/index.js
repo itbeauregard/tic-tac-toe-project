@@ -27,4 +27,6 @@ $(() => {
   })
   $('#create-account').hide()
   $('#change-password').hide()
+  $('#stalemate-display').hide()
+  $('#win-display').hide()
 })
