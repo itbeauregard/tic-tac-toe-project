@@ -1,0 +1,63 @@
+/*<link href="https://fonts.googleapis.com/css?family=Holtwood+One+SC|Modak|Monofett|Plaster|Ruslan+Display|Sigmar+One" rel="stylesheet">*/
+
+h1 {
+  text-align: center;
+  font-size: 100px;
+}
+
+.one {
+ font-family: Plaster, sans-serif;
+}
+
+/*.two {
+ font-family: 'Sigmar One', sans-serif;
+}
+
+.three {
+ font-family: Monofett, sans-serif;
+}
+
+.four {
+ font-family: "Holtwood One SC", sans-serif;
+}
+
+.five {
+ font-family: 'Ruslan Display', sans-serif;
+}
+
+.six {
+ font-family: Modak, sans-serif;
+ font-weight: 400;
+}*/
+
+body {
+ text-align: center;
+}
+
+
+.top {
+ margin: 0 auto;
+ width: 300px;
+}
+
+
+.left {
+ float: left;
+ width: 100px;
+ height: 100px;
+ background-color: black;
+}
+
+.mid {
+ float: left;
+ width: 100px;
+ height: 100px;
+ background-color: purple;
+}
+
+.right {
+ float: right;
+ width: 100px;
+ height: 100px;
+ background-color: red;
+}
