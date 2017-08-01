@@ -100,7 +100,19 @@ const assessGame = function () {
     // show stalemate screen
   }
 }
+
+const isMarked = function (index) {
+  if (board[index] === 'X' || board[index] === 'O') {
+    return true;
+  } else {
+    return false;
+  }
+}
 // click handlers for game board
+// if (click on board cell isMarked === false) {
+//    makeMove(index)
+// }
+
 // test for win after five moves, first time a win could happen
   //    if ( moves > 5 ) {
   //      if ( three in a row) {
