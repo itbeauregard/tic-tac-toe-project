@@ -8,7 +8,16 @@ $(() => {
 })
 
 // use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
+// const example = require('./example');
 
 // use require without a reference to ensure a file is bundled
-require('./example')
+// require('./example');
+//
+const accountEvents = require('./accounts/events')
+
+// On document ready
+$(() => {
+  $('#account-login').on('submit', accountEvents.onGetAccount)
+  $('#change-password').on('submit', accountEvents.onUpdateAccount)
+  $('#create-account').on('submit', accountEvents.onCreateAccount)
+})
