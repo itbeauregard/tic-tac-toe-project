@@ -20,4 +20,8 @@ $(() => {
   $('#account-login').on('submit', accountEvents.onGetAccount)
   $('#change-password').on('submit', accountEvents.onUpdateAccount)
   $('#create-account').on('submit', accountEvents.onCreateAccount)
+
+  // $('#create-account').hide()
+  // $('#change-password').hide()
+
 })

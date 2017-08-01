@@ -65,19 +65,19 @@ const game = {
   //  | 3 | 4 | 5 |
   //  | 6 | 7 | 8 |
   startNewBoard: function () {
-    board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
   },
   // Initialize array that will deploy X's and O's
   loadXO: function () {
-    xoArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+    this.xoArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
   },
   // Push an X or O from xoArray on the board array at the index
   makeMove: function (index) {
-    board[index] = xoArray.pop()
+    this.board[index] = this.xoArray.pop()
   },
   // Check whether the board cell at given index is already marked
   isMarked: function (index) {
-    if (board[index] === 'X' || board[index] === 'O') {
+    if (this.board[index] === 'X' || this.board[index] === 'O') {
       return true
     } else {
       return false
@@ -86,7 +86,8 @@ const game = {
   // Run through every possible winning combination and check for match, return boolean
   // Winning combos: 0 1 2, 3 4 5, 6 7 8, 0 3 6, 1 4 7, 2 5 8, 0 4 8, 2 4 6
   isThereWinner: function () {
-    if ((board[0] === board[1] && board[1] === board[2]) || (board[3] === board[4] && board[4] === board[5]) || (board[6] === board[7] && board[7] === board[8]) || (board[0] === board[3] && board[3] === board[6]) || (board[1] === board[4] && board[4] === board[7]) || (board[2] === board[5] && board[5] === board[8]) || (board[0] === board[4] && board[4] === board[8]) || (board[2] === board[4] && board[4] === board[6])) {
+    const cell = this.board
+    if ((cell[0] === cell[1] && cell[1] === cell[2]) || (cell[3] === cell[4] && cell[4] === cell[5]) || (cell[6] === cell[7] && cell[7] === cell[8]) || (cell[0] === cell[3] && cell[3] === cell[6]) || (cell[1] === cell[4] && cell[4] === cell[7]) || (cell[2] === cell[5] && cell[5] === cell[8]) || (cell[0] === cell[4] && cell[4] === cell[8]) || (cell[2] === cell[4] && cell[4] === cell[6])) {
       return true
     } else {
       return false
@@ -94,20 +95,22 @@ const game = {
   },
   assessGame: function () {
     // if 5 moves have been made, test for win
-    if (xoArray.length < 5) {
-      if (isVictorious()) {
+    if (this.xoArray.length < 5) {
+      if (this.isVictorious()) {
         // show victory screen
       }
-    } else if (xoArray.length === 0) {
+    } else if (this.xoArray.length === 0) {
       // show stalemate screen
     }
   }
 }
 
-const clickHandlers = {
+const gameClickHandlers = {
 
 }
 
+$('#create-account').hide()
+$('#change-password').hide()
 
 // click handlers for game board
 // if (click on board cell isMarked === false) {
