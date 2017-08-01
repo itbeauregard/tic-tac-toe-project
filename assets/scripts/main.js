@@ -13,14 +13,11 @@
 
 // 4. Hide login inputs and button, show change password inputs and button. If click submit, return to #1
 
-
-
-
 // Create Player object
 
 // has class
 // create game board of 3 x 3
-let board = {}
+// let board = {}
 // [0,0]:
 // [0,1]:
 // [0,2]:
@@ -36,33 +33,52 @@ let board = {}
 // [1,0],[1,1],[1,2]
 // [2,0],[2,1],[2,2]
 
+// const createBoard = function () {
+//   for (let i = 0; i < 3; i++) {
+//     const xCoord = i
+//     for (let j = 0; j < 3; j++) {
+//       const yCoord = j
+//       board[`[${xCoord},${yCoord}]`] = ''
+//     }
+//   }
+//   return board
+// }
+
+// winning combos
+// if board[0], board[1], board[2]
+// 3 4 5
+// 6 7 8
+// 0 3 6
+// 1 4 7
+// 2 5 8
+// 0 4 8
+// 2 4 6
+
 // Create array for X and O storage
-let xoArray = []
-
+let board = []
 // draw 3 x 3 game board
-const createBoard = function () {
-  for (let i = 0; i < 3; i++) {
-    const xCoord = i
-    for (let j = 0; j < 3; j++) {
-      const yCoord = j
-      board[`[${xCoord},${yCoord}]`] = ''
-    }
-  }
-  return board
+const startNewBoard = function () {
+  board = []
 }
 
+
+// test for every winning combo
 const isVictorious = function () {
-
+  if ((board[0] === board[1] && board[1] === board[2]) || (board[3] === board[4] && board[4] === board[5]) || (board[6] === board[7] && board[7] === board[8]) || (board[0] === board[3] && board[3] === board[6]) || (board[1] === board[4] && board[4] === board[7]) || (board[2] === board[5] && board[5] === board[8]) || (board[0] === board[4] && board[4] === board[8]) || (board[2] === board[4] && board[4] === board[6])) {
+    return true
+  } else {
+    return false
+  }
 }
-
+let xoArray = []
 // load X's and O's into array
 const loadXO = function () {
-  xoArray = ['X','O','X','O','X','O','X','O','X']
+  xoArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
 }
 
 // release an X or O to be associated with clicks
-const makeMove = function () {
-  return xoArray.pop()
+const makeMove = function (index) {
+  board[index] = xoArray.pop()
 }
 
 const assessGame = function () {
