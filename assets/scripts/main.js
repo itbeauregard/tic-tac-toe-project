@@ -104,31 +104,11 @@ const game = {
   }
 }
 
-// draw 3 x 3 game board with numbers holding places
-// TODO event handler
-const startNewBoard =
+const clickHandlers = {
 
-// test for every winning combo
-// if board[0], board[1], board[2] are all the same
-// 3 4 5
-// 6 7 8
-// 0 3 6
-// 1 4 7
-// 2 5 8
-// 0 4 8
-// 2 4 6
-const isVictorious =
-let xoArray = []
-// load X's and O's into array
-const loadXO =
+}
 
-// TODO event handler
-// release an X or O to be associated with clicks
-const makeMove =
 
-const assessGame =
-
-const isMarked =
 // click handlers for game board
 // if (click on board cell isMarked === false) {
 //    makeMove(index)
