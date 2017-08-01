@@ -103,9 +103,9 @@ const assessGame = function () {
 
 const isMarked = function (index) {
   if (board[index] === 'X' || board[index] === 'O') {
-    return true;
+    return true
   } else {
-    return false;
+    return false
   }
 }
 // click handlers for game board
