@@ -2,6 +2,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Holtwood+One+SC|Modak|Monofett|Plaster|Ruslan+Display|Sigmar+One');
 
+$border-style: 1px solid #000;
+
 body {
   text-align: center;
 }
@@ -11,24 +13,35 @@ h1 {
   font-size: 50px;
 }
 
-div {
-  border: 1px solid #000;
-}
-
 .row {
   width: 305px;
 }
 
+.top, .mid {
+  border-bottom: $border-style;
+}
+
+.left {
+  border-right: $border-style;
+}
+
+.right {
+  border-left: $border-style;
+}
+
 .container {
   width: 305px;
+  margin-top: 20px;
 }
 
 .cell {
-  width: 100px;
-  height: 100px;
   float: left;
+  font-family: 'Plaster', sans-serif;
+  font-size: 70px;
+  height: 100px;
+  width: 100px;
 }
 
-#reveal-new-account {
+button {
   margin: 20px;
 }

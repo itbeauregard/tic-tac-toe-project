@@ -26,6 +26,6 @@ $(() => {
     gameLogic.markCell(parseInt(this.id))
     console.log('you clicked cell number ' + this.id)
   })
-  // $('#create-account').hide()
-  // $('#change-password').hide()
+  $('#create-account').hide()
+  $('#change-password').hide()
 })
