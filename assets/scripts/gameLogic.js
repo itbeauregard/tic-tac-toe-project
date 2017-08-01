@@ -124,6 +124,19 @@ const markCell = function (index) {
   }
 }
 
+const restartGame = function () {
+  game.resetBoard()
+  game.resetXO()
+  // redraw the visual game board
+  for (let i = 0; i < 9; i++) {
+    $('#' + i).empty()
+  }
+  // Added in case the user is pressing button from a victory or stalemate page
+  $('#win-display').hide()
+  $('#stalemate-display').hide()
+  $('#game-board').show()
+}
+// Hides the login buttons and form, then shows the game board with a restart button
 const login = function () {
   // TODO run only if account information is valid
   $('#account-login').hide()
@@ -133,6 +146,7 @@ const login = function () {
   $('#restart').show()
 }
 
+// Hides the login inputs and shows a password change form
 const showChangePassword = function () {
   $('#account-login').hide()
   $('#reveal-new-account').hide()
@@ -140,6 +154,7 @@ const showChangePassword = function () {
   $('#change-password').show()
 }
 
+// Hides the login inputs and shows a create account form
 const showCreateAccount = function () {
   $('#account-login').hide()
   $('#reveal-new-account').hide()
@@ -149,6 +164,7 @@ const showCreateAccount = function () {
 
 module.exports = {
   markCell,
+  restartGame,
   login,
   showChangePassword,
   showCreateAccount
