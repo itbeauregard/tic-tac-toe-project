@@ -31,6 +31,11 @@ let board = {}
 // [2,1]:
 // [2,2]:
 
+// winning combos
+// [0,0],[0,1],[0,2]
+// [1,0],[1,1],[1,2]
+// [2,0],[2,1],[2,2]
+
 // Create array for X and O storage
 let xoArray = []
 
@@ -46,6 +51,10 @@ const createBoard = function () {
   return board
 }
 
+const isVictorious = function () {
+
+}
+
 // load X's and O's into array
 const loadXO = function () {
   xoArray = ['X','O','X','O','X','O','X','O','X']
@@ -56,6 +65,16 @@ const makeMove = function () {
   return xoArray.pop()
 }
 
+const assessGame = function () {
+  // if 5 moves have been made, test for win
+  if (xoArray.length < 5) {
+    if (isVictorious()) {
+      // show victory screen
+    }
+  } else if (xoArray.length === 0) {
+
+  }
+}
 // click handlers for game board
 // test for win after five moves, first time a win could happen
   //    if ( moves > 5 ) {
