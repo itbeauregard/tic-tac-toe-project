@@ -54,13 +54,59 @@
 // 0 4 8
 // 2 4 6
 
-// Create array for X and O storage
-let board = []
+// Create object to hold variables and callback functions
+const game = {
+  // Create array for game play storage of X and O
+  board: [],
+  // Create array from which to deploy X's and O's
+  xoArray: [],
+  // Initialize the game board with number placeholders, representing:
+  //  | 0 | 1 | 2 |
+  //  | 3 | 4 | 5 |
+  //  | 6 | 7 | 8 |
+  startNewBoard: function () {
+    board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  },
+  // Initialize array that will deploy X's and O's
+  loadXO: function () {
+    xoArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+  },
+  // Push an X or O from xoArray on the board array at the index
+  makeMove: function (index) {
+    board[index] = xoArray.pop()
+  },
+  // Check whether the board cell at given index is already marked
+  isMarked: function (index) {
+    if (board[index] === 'X' || board[index] === 'O') {
+      return true
+    } else {
+      return false
+    }
+  },
+  // Run through every possible winning combination and check for match, return boolean
+  // Winning combos: 0 1 2, 3 4 5, 6 7 8, 0 3 6, 1 4 7, 2 5 8, 0 4 8, 2 4 6
+  isThereWinner: function () {
+    if ((board[0] === board[1] && board[1] === board[2]) || (board[3] === board[4] && board[4] === board[5]) || (board[6] === board[7] && board[7] === board[8]) || (board[0] === board[3] && board[3] === board[6]) || (board[1] === board[4] && board[4] === board[7]) || (board[2] === board[5] && board[5] === board[8]) || (board[0] === board[4] && board[4] === board[8]) || (board[2] === board[4] && board[4] === board[6])) {
+      return true
+    } else {
+      return false
+    }
+  },
+  assessGame: function () {
+    // if 5 moves have been made, test for win
+    if (xoArray.length < 5) {
+      if (isVictorious()) {
+        // show victory screen
+      }
+    } else if (xoArray.length === 0) {
+      // show stalemate screen
+    }
+  }
+}
+
 // draw 3 x 3 game board with numbers holding places
 // TODO event handler
-const startNewBoard = function () {
-  board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-}
+const startNewBoard =
 
 // test for every winning combo
 // if board[0], board[1], board[2] are all the same
@@ -71,43 +117,18 @@ const startNewBoard = function () {
 // 2 5 8
 // 0 4 8
 // 2 4 6
-const isVictorious = function () {
-  if ((board[0] === board[1] && board[1] === board[2]) || (board[3] === board[4] && board[4] === board[5]) || (board[6] === board[7] && board[7] === board[8]) || (board[0] === board[3] && board[3] === board[6]) || (board[1] === board[4] && board[4] === board[7]) || (board[2] === board[5] && board[5] === board[8]) || (board[0] === board[4] && board[4] === board[8]) || (board[2] === board[4] && board[4] === board[6])) {
-    return true
-  } else {
-    return false
-  }
-}
+const isVictorious =
 let xoArray = []
 // load X's and O's into array
-const loadXO = function () {
-  xoArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
-}
+const loadXO =
 
 // TODO event handler
 // release an X or O to be associated with clicks
-const makeMove = function (index) {
-  board[index] = xoArray.pop()
-}
+const makeMove =
 
-const assessGame = function () {
-  // if 5 moves have been made, test for win
-  if (xoArray.length < 5) {
-    if (isVictorious()) {
-      // show victory screen
-    }
-  } else if (xoArray.length === 0) {
-    // show stalemate screen
-  }
-}
+const assessGame =
 
-const isMarked = function (index) {
-  if (board[index] === 'X' || board[index] === 'O') {
-    return true
-  } else {
-    return false
-  }
-}
+const isMarked =
 // click handlers for game board
 // if (click on board cell isMarked === false) {
 //    makeMove(index)
