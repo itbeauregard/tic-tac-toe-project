@@ -2,7 +2,7 @@
 
 const app = require('../store.js')
 
-const show = function (id) {
+const loginAccount = function (id) {
   return $.ajax({
     url: app.host + '/accounts/' + id,
     method: 'GET'
@@ -26,7 +26,7 @@ const createAccount = function (data) {
 }
 
 module.exports = {
-  show,
+  loginAccount,
   changePassword,
   createAccount
 }

@@ -16,10 +16,14 @@ $(() => {
 const accountEvents = require('./accounts/events')
 const gameLogic = require('./gameLogic')
 
+// TODO 1. understand how the back end logic works and connects to inputs
+//      2. Display user's game stats
+//      3. How will this be played? Are we trying to create a game played online
+
 // On document ready
 $(() => {
-  $('#account-login').on('submit', accountEvents.onGetAccount)
-  $('#change-password').on('submit', accountEvents.onUpdateAccount)
+  $('#account-login').on('submit', accountEvents.onLogin)
+  $('#change-password').on('submit', accountEvents.onChangePassword)
   $('#create-account').on('submit', accountEvents.onCreateAccount)
   $('#login').on('click', gameLogic.login)
   $('#create-account').hide()

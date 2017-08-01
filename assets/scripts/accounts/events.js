@@ -10,12 +10,13 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 // beginning with 'on' to denote that it is done when the GET /books
 // button is clicked
 
-const onGetAccount = function (event) {
+const onLogin = function (event) {
   event.preventDefault()
-  const account = getFormFields(event.target).account
+  const data = getFormFields(event.target)
+  const account = data.account
 
   if (account.id.length !== 0) {
-    accountsApi.show(account.id)
+    accountsApi.loginAccount(account.id)
       .then(accountsUi.onSuccess)
       .catch(accountsUi.onError)
   } else {
@@ -24,13 +25,13 @@ const onGetAccount = function (event) {
 }
 
 // Where does event come from?
-const onUpdateAccount = function (event) {
+const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target) // this is the form input { book: { 'author': ..., }}
   const account = data.account // {id: ..., 'author': ..., 'title': ...}
 
   if (account.id.length !== 0) {
-    accountsApi.update(data) // returns a JQXhr object ($.ajax({}))
+    accountsApi.changePassword(data) // returns a JQXhr object ($.ajax({}))
       .then(accountsUi.onUpdateSuccess)
       .catch(accountsUi.onError)
   } else {
@@ -42,13 +43,13 @@ const onCreateAccount = function (event) {
   event.preventDefault()
 
   const data = getFormFields(event.target)
-  accountsApi.create(data)
+  accountsApi.createAccount(data)
     .then(accountsUi.onCreateSuccess)
     .catch(accountsUi.onError)
 }
 
 module.exports = {
-  onGetAccount,
-  onUpdateAccount,
+  onLogin,
+  onChangePassword,
   onCreateAccount
 }
