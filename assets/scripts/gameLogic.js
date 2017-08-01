@@ -115,6 +115,7 @@ const markCell = function (index) {
     if (game.xoArray.length < 5 && game.isThereWinner()) {
       $('#game-board').hide()
       $('#win-display').show()
+    // TODO reset board and xoArray arrays and redraw user board
     // Checks if xoArray is empty to check for stalemate
     } else if (game.xoArray.length === 0) {
       $('#game-board').hide()
@@ -123,22 +124,31 @@ const markCell = function (index) {
   }
 }
 
-// click handlers for game board
-// if (click on board cell isMarked === false) {
-//    makeMove(index)
-// }
+const login = function () {
+  // TODO run only if account information is valid
+  $('#account-login').hide()
+  $('#reveal-new-account').hide()
+  $('#reveal-change-password').hide()
+  $('#game-board').show()
+}
 
-// test for win after five moves, first time a win could happen
-//    if ( moves > 5 ) {
-//      if ( three in a row) {
-//        run win page
-//      } else if (xoArray.length === 0)
-//        run stalemate page
-//      } else {
-//        continue game
-//      }
-//    }
+const showChangePassword = function () {
+  $('#account-login').hide()
+  $('#reveal-new-account').hide()
+  $('#reveal-change-password').hide()
+  $('#change-password').show()
+}
+
+const showCreateAccount = function () {
+  $('#account-login').hide()
+  $('#reveal-new-account').hide()
+  $('#reveal-change-password').hide()
+  $('#create-account').show()
+}
 
 module.exports = {
-  markCell
+  markCell,
+  login,
+  showChangePassword,
+  showCreateAccount
 }
