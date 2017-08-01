@@ -107,13 +107,18 @@ const game = {
 }
 
 const markCell = function (index) {
+  // if > 5 moves have been made, test for win
+  if (game.xoArray.length < 5) {
+    if (game.isThereWinner()) {
+      $('#win-display').show()
+    }
+  // Checks if xoArray is empty to check for stalemate
+  } else if (game.xoArray.length === 0) {
+    $('#stalemate-display').show()
   // Checks if the board's cell is already marked, if false then proceeds
-  if (game.isMarked(index) === false) {
+  } else if (game.isMarked(index) === false) {
     // Put an X or O in the cell
     $('#' + index).append(game.makeMove(index))
-    console.log('Game board index is ' + game.board[index])
-  } else {
-    console.log('You have already marked that cell')
   }
 }
 

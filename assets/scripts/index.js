@@ -24,7 +24,6 @@ $(() => {
   // Game board and xoArray arrays need to be initialized before this function
   $('.cell').on('click', function () {
     gameLogic.markCell(parseInt(this.id))
-    console.log('you clicked cell number ' + this.id)
   })
   $('#create-account').hide()
   $('#change-password').hide()
