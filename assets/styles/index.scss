@@ -2,6 +2,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Holtwood+One+SC|Modak|Monofett|Plaster|Ruslan+Display|Sigmar+One');
 
+body {
+  text-align: center;
+}
+
 h1 {
   font-family: 'Plaster', sans-serif;
   font-size: 50px;
@@ -9,4 +13,18 @@ h1 {
 
 div {
   border: 1px solid #000;
+}
+
+.row {
+  width: 305px;
+}
+
+.container {
+  width: 305px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  float: left;
 }
