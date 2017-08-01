@@ -57,18 +57,18 @@
 // Create object to hold variables and callback functions
 const game = {
   // Create array for game play storage of X and O
-  board: [],
+  board: [0, 1, 2, 3, 4, 5, 6, 7, 8],
   // Create array from which to deploy X's and O's
-  xoArray: [],
+  xoArray: ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'],
   // Initialize the game board with number placeholders, representing:
   //  | 0 | 1 | 2 |
   //  | 3 | 4 | 5 |
   //  | 6 | 7 | 8 |
-  startNewBoard: function () {
+  resetBoard: function () {
     this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
   },
   // Initialize array that will deploy X's and O's
-  loadXO: function () {
+  resetXO: function () {
     this.xoArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
   },
   // Push an X or O from xoArray on the board array at the index
@@ -108,9 +108,10 @@ const game = {
 
 const markCell = function (index) {
   // Checks if the board's cell is already marked, if false then proceeds
-  if (game.isMarked() === false) {
+  if (game.isMarked(index) === false) {
     // Put an X or O in the cell
     $('#' + index).append(game.makeMove(index))
+    console.log('Game board index is ' + game.board[index])
   } else {
     console.log('You have already marked that cell')
   }

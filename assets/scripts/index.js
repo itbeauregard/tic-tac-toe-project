@@ -21,6 +21,7 @@ $(() => {
   $('#account-login').on('submit', accountEvents.onGetAccount)
   $('#change-password').on('submit', accountEvents.onUpdateAccount)
   $('#create-account').on('submit', accountEvents.onCreateAccount)
+  // Game board and xoArray arrays need to be initialized before this function
   $('.cell').on('click', function () {
     gameLogic.markCell(parseInt(this.id))
     console.log('you clicked cell number ' + this.id)
