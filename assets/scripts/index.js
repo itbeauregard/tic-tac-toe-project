@@ -14,6 +14,7 @@ $(() => {
 // require('./example');
 //
 const accountEvents = require('./accounts/events')
+const gameLogic = require('./gameLogic')
 
 // On document ready
 $(() => {
@@ -21,7 +22,8 @@ $(() => {
   $('#change-password').on('submit', accountEvents.onUpdateAccount)
   $('#create-account').on('submit', accountEvents.onCreateAccount)
   $('.cell').on('click', function () {
-    $(this).append('<strong>Hello</strong>')
+    gameLogic.markCell(parseInt(this.id))
+    console.log('you clicked cell number ' + this.id)
   })
   // $('#create-account').hide()
   // $('#change-password').hide()
