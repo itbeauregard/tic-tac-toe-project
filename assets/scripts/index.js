@@ -21,7 +21,7 @@ $(() => {
   $('#account-login').on('submit', accountEvents.onGetAccount)
   $('#change-password').on('submit', accountEvents.onUpdateAccount)
   $('#create-account').on('submit', accountEvents.onCreateAccount)
-  $('#account-login').on('click', gameLogic.login)
+  $('#login').on('click', gameLogic.login)
   $('#create-account').hide()
   $('#change-password').hide()
   $('#stalemate-display').hide()
