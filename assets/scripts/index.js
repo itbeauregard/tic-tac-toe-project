@@ -27,6 +27,7 @@ $(() => {
   $('#stalemate-display').hide()
   $('#win-display').hide()
   $('#game-board').hide()
+  $('#restart').hide()
 
   $('#reveal-change-password').on('click', gameLogic.showChangePassword)
   $('#reveal-new-account').on('click', gameLogic.showCreateAccount)

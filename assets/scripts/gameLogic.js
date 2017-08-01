@@ -130,6 +130,7 @@ const login = function () {
   $('#reveal-new-account').hide()
   $('#reveal-change-password').hide()
   $('#game-board').show()
+  $('#restart').show()
 }
 
 const showChangePassword = function () {
