@@ -71,6 +71,18 @@ const markCell = function (index) {
   }
 }
 
+
+const loginScreen = function () {
+  $('#create-account').hide()
+  $('#change-password').hide()
+  $('#stalemate-display').hide()
+  $('#win-display').hide()
+  $('#game-board').hide()
+  $('#restart').hide()
+  $('#create-game').hide()
+  $('#game-buttons').hide()
+}
+
 // Hides the login buttons and form, then shows the game board with a restart button
 const login = function () {
   // TODO run only if account information is valid
@@ -95,6 +107,11 @@ const createGame = function () {
   $('#game-board').show()
 }
 
+const signOut = function () {
+  loginScreen()
+  $('#account-login').show()
+}
+
 // Hides the login inputs and shows a password change form
 const showChangePassword = function () {
   $('#account-login').hide()
@@ -113,8 +130,10 @@ const showCreateAccount = function () {
 
 module.exports = {
   markCell,
+  loginScreen,
   createGame,
   login,
+  signOut,
   showChangePassword,
   showCreateAccount
 }

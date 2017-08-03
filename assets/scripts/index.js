@@ -35,17 +35,12 @@ $(() => {
   $('#join-game').on('submit', accountEvents.onJoinGame)
   $('#update-game-state').on('submit', accountEvents.onUpdateGameState)
 
-  $('#create-account').hide()
-  $('#change-password').hide()
-  $('#stalemate-display').hide()
-  $('#win-display').hide()
-  $('#game-board').hide()
-  $('#restart').hide()
-  $('#create-game').hide()
-  $('#game-buttons').hide()
+  gameLogic.loginScreen()
 
   $('#login').on('click', gameLogic.login)
   $('#create-game').on('click', gameLogic.createGame)
+  // Sign out page change required
+  $('#signout').on('click', gameLogic.signOut)
   $('#reveal-change-password').on('click', gameLogic.showChangePassword)
   $('#reveal-new-account').on('click', gameLogic.showCreateAccount)
   // On click, run markCell function from the gameLogic file
