@@ -32,6 +32,7 @@ $(() => {
   $('#createGame').on('submit', accountEvents.onCreateGame)
   $('#getGames').on('submit', accountEvents.onGetGames)
   $('#getGame').on('submit', accountEvents.onGetGame)
+  $('#joinGame').on('submit', accountEvents.onJoinGame)
   $('#login').on('click', gameLogic.login)
   // $('#create-account').hide()
   // $('#change-password').hide()

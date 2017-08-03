@@ -35,13 +35,19 @@ const onCreateGameSuccess = function () {
 const onGetGamesSuccess = function (data) {
   app.data = data.user
   console.log(data)
-  console.log('getGames from ui.js ran!')
+  console.log('onGetGamesSuccess from ui.js ran!')
 }
 
 const onGetGameSuccess = function (data) {
   app.data = data.user
   console.log(data)
-  console.log('getGames from ui.js ran!')
+  console.log('onGetGameSuccess from ui.js ran!')
+}
+
+const onJoinGameSuccess = function (data) {
+  app.data = data.user
+  console.log(data)
+  console.log('onJoinGameSuccess from ui.js ran!')
 }
 
 module.exports = {
@@ -51,5 +57,6 @@ module.exports = {
   onCreateSuccess,
   onCreateGameSuccess,
   onGetGamesSuccess,
-  onGetGameSuccess
+  onGetGameSuccess,
+  onJoinGameSuccess
 }

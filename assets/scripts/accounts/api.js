@@ -76,6 +76,16 @@ const getGame = function (data) {
   })
 }
 
+// TODO check whether I should be passing in data here
+const joinGame = function (data) {
+  console.log('joinGame from api.js ran!')
+  return $.ajax({
+    url: config.apiOrigin + '/games' + app.user.id,
+    method: 'PATCH',
+    data
+  })
+}
+
 module.exports = {
   loginAccount,
   changePassword,
@@ -83,5 +93,6 @@ module.exports = {
   signOut,
   createGame,
   getGames,
-  getGame
+  getGame,
+  joinGame
 }
