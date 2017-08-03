@@ -28,7 +28,6 @@
     </div>
     <button type="submit" id='login' class='btn btn-default'>Login</button>
     <button type='submit' id='reveal-new-account' class='btn btn-default'>Sign up for new account</button>
-    <button type='submit' id='reveal-change-password' class='btn btn-default'>Change password</button>
   </form>
 
   <form class='accounts' id='create-account'>
@@ -38,7 +37,7 @@
       <input type="password" name="credentials[password]" placeholder="Password">
       <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
     </div>
-    <button type="submit" class='btn btn-default'>Create New Account</button>
+    <button type="submit" id='create-button' class='btn btn-default'>Create New Account</button>
   </form>
 
 
@@ -48,7 +47,7 @@
       <input type="password" name="passwords[old]" placeholder="Old Password">
       <input type="password" name="passwords[new]" placeholder="New Password">
     </div>
-    <button type="submit" name='submit' class='btn btn-default'>Change Password</button>
+    <button type="submit" id="change-button" name='submit' class='btn btn-default'>Change Password</button>
   </form>
 
 
@@ -110,6 +109,8 @@
       <button type="submit" id='signout' class='btn btn-default'>Sign Out</button>
     </div>
   </form>
+
+  <button type='submit' id='reveal-change-password' class='btn btn-default'>Change password</button>
 
 </body>
 </html>

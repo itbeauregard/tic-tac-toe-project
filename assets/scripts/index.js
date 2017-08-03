@@ -27,7 +27,6 @@ $(() => {
   $('#account-login').on('submit', accountEvents.onLogin)
   $('#change-password').on('submit', accountEvents.onChangePassword)
   $('#create-account').on('submit', accountEvents.onCreateAccount)
-  // will need to clear page to login to start game
   $('#account-signout').on('submit', accountEvents.onSignOut)
   $('#create-game').on('submit', accountEvents.onCreateGame)
   $('#get-games').on('submit', accountEvents.onGetGames)
@@ -43,6 +42,10 @@ $(() => {
   $('#signout').on('click', gameLogic.signOut)
   $('#reveal-change-password').on('click', gameLogic.showChangePassword)
   $('#reveal-new-account').on('click', gameLogic.showCreateAccount)
+  // When account is created, return user to login screen
+  $('#create-button').on('click', gameLogic.loginScreen)
+  // When password is changed, return user to login screen
+  $('#change-button').on('click', gameLogic.loginScreen)
   // On click, run markCell function from the gameLogic file
   $('.cell').on('click', function () {
     gameLogic.markCell(parseInt(this.id))

@@ -71,8 +71,9 @@ const markCell = function (index) {
   }
 }
 
-
 const loginScreen = function () {
+  $('#account-login').show()
+  $('#reveal-new-account').show()
   $('#create-account').hide()
   $('#change-password').hide()
   $('#stalemate-display').hide()
@@ -88,7 +89,6 @@ const login = function () {
   // TODO run only if account information is valid
   $('#account-login').hide()
   $('#reveal-new-account').hide()
-  $('#reveal-change-password').hide()
   $('#create-game').show()
 }
 
