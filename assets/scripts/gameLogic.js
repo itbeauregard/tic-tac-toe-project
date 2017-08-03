@@ -69,7 +69,16 @@ const markCell = function (index) {
   }
 }
 
-const restartGame = function () {
+// Hides the login buttons and form, then shows the game board with a restart button
+const login = function () {
+  // TODO run only if account information is valid
+  $('#account-login').hide()
+  $('#reveal-new-account').hide()
+  $('#reveal-change-password').hide()
+  $('#create-game').show()
+}
+
+const createGame = function () {
   game.resetBoard()
   game.resetXO()
   // redraw the visual game board
@@ -80,15 +89,6 @@ const restartGame = function () {
   $('#win-display').hide()
   $('#stalemate-display').hide()
   $('#game-board').show()
-}
-// Hides the login buttons and form, then shows the game board with a restart button
-const login = function () {
-  // TODO run only if account information is valid
-  $('#account-login').hide()
-  $('#reveal-new-account').hide()
-  $('#reveal-change-password').hide()
-  $('#game-board').show()
-  $('#restart').show()
 }
 
 // Hides the login inputs and shows a password change form
@@ -109,7 +109,7 @@ const showCreateAccount = function () {
 
 module.exports = {
   markCell,
-  restartGame,
+  createGame,
   login,
   showChangePassword,
   showCreateAccount
