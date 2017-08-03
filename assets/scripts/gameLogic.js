@@ -54,11 +54,13 @@ const game = {
 const markCell = function (index) {
   // Checks if the board's cell is already marked, if false then proceeds
   if (game.isMarked(index) === false) {
+    const letter = game.makeMove(index)
     // Put an X or O in the cell
-    $('#' + index).append(game.makeMove(index))
+    $('#' + index).append(letter)
     // if > 5 moves have been made and there is a winner
     if (game.xoArray.length < 5 && game.isThereWinner()) {
       $('#game-board').hide()
+      $('#winner').append(letter + ' wins, HOORAY!!')
       $('#win-display').show()
     // TODO reset board and xoArray arrays and redraw user board
     // Checks if xoArray is empty to check for stalemate
@@ -85,6 +87,8 @@ const createGame = function () {
   for (let i = 0; i < 9; i++) {
     $('#' + i).empty()
   }
+  // Reset the winner heading
+  $('#winner').text('')
   // Added in case the user is pressing button from a victory or stalemate page
   $('#win-display').hide()
   $('#stalemate-display').hide()
