@@ -64,11 +64,24 @@ const getGames = function (data) {
   })
 }
 
+const getGame = function (data) {
+  console.log('getGame from api.js ran!')
+  return $.ajax({
+    url: config.apiOrigin + '/games' + app.user.id,
+    method: 'GET',
+    header: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   loginAccount,
   changePassword,
   createAccount,
   signOut,
   createGame,
-  getGames
+  getGames,
+  getGame
 }

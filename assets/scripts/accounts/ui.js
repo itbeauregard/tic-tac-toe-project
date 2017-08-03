@@ -38,11 +38,18 @@ const onGetGamesSuccess = function (data) {
   console.log('getGames from ui.js ran!')
 }
 
+const onGetGameSuccess = function (data) {
+  app.data = data.user
+  console.log(data)
+  console.log('getGames from ui.js ran!')
+}
+
 module.exports = {
   onSuccess,
   onUpdateSuccess,
   onError,
   onCreateSuccess,
   onCreateGameSuccess,
-  onGetGamesSuccess
+  onGetGamesSuccess,
+  onGetGameSuccess
 }
