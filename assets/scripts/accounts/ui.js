@@ -50,6 +50,12 @@ const onJoinGameSuccess = function (data) {
   console.log('onJoinGameSuccess from ui.js ran!')
 }
 
+const onUpdateGameStateSuccess = function (data) {
+  app.data = data.user
+  console.log(data)
+  console.log('onJoinGameSuccess from ui.js ran!')
+}
+
 module.exports = {
   onSuccess,
   onUpdateSuccess,
@@ -58,5 +64,6 @@ module.exports = {
   onCreateGameSuccess,
   onGetGamesSuccess,
   onGetGameSuccess,
-  onJoinGameSuccess
+  onJoinGameSuccess,
+  onUpdateGameStateSuccess
 }

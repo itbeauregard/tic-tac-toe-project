@@ -78,6 +78,14 @@ const onJoinGame = function (event) {
     .catch(ui.onError)
 }
 
+const onUpdateGameState = function (event) {
+  event.preventDefault()
+  console.log('onUpdateGameState from event.js ran!')
+  api.updateGameState()
+    .then(ui.onUpdateGameStateSuccess)
+    .catch(ui.onError)
+}
+
 module.exports = {
   onLogin,
   onChangePassword,
@@ -86,5 +94,6 @@ module.exports = {
   onCreateGame,
   onGetGames,
   onGetGame,
-  onJoinGame
+  onJoinGame,
+  onUpdateGameState
 }

@@ -46,7 +46,7 @@ const signOut = function (id) {
 const createGame = function (data) {
   console.log('createGame from api.js ran!')
   return $.ajax({
-    url: config.apiOrigin + '/games/',
+    url: config.apiOrigin + '/games',
     method: 'POST',
     data
   })
@@ -67,7 +67,7 @@ const getGames = function (data) {
 const getGame = function (data) {
   console.log('getGame from api.js ran!')
   return $.ajax({
-    url: config.apiOrigin + '/games' + app.user.id,
+    url: config.apiOrigin + '/games/' + app.user.id,
     method: 'GET',
     header: {
       Authorization: 'Token token=' + app.user.token
@@ -76,11 +76,19 @@ const getGame = function (data) {
   })
 }
 
-// TODO check whether I should be passing in data here
-const joinGame = function (data) {
+// TODO check whether I should be passing in id here
+const joinGame = function (id) {
   console.log('joinGame from api.js ran!')
   return $.ajax({
-    url: config.apiOrigin + '/games' + app.user.id,
+    url: config.apiOrigin + '/games/' + app.user.id,
+    method: 'PATCH'
+  })
+}
+
+const updateGameState = function (data) {
+  console.log('updateGameState from api.js ran!')
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + app.user.id,
     method: 'PATCH',
     data
   })
@@ -94,5 +102,6 @@ module.exports = {
   createGame,
   getGames,
   getGame,
-  joinGame
+  joinGame,
+  updateGameState
 }
