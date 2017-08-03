@@ -41,8 +41,8 @@ const onCreateAccount = function (event) {
 const onSignOut = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.createAccount(data)
-    .then(ui.onCreateSuccess)
+  api.signOut(data)
+    .then(ui.onSignOutSuccess)
     .catch(ui.onError)
 }
 

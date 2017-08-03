@@ -13,11 +13,12 @@ const loginAccount = function (data) {
 }
 
 const changePassword = function (data) {
+  console.log(data)
   console.log(app.user)
   return $.ajax({
     url: app.host + '/change-password/' + app.user.id,
     method: 'PATCH',
-    header: {
+    headers: {
       Authorization: 'Token token=' + app.user.token
     },
     data
@@ -33,11 +34,11 @@ const createAccount = function (data) {
   })
 }
 
-const signOut = function (id) {
+const signOut = function () {
   return $.ajax({
     url: app.host + '/sign-out/' + app.user.id,
     method: 'DELETE',
-    header: {
+    headers: {
       Authorization: 'Token token=' + app.user.token
     }
   })
@@ -57,7 +58,7 @@ const getGames = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/games[?over=]',
     method: 'GET',
-    header: {
+    headers: {
       Authorization: 'Token token=' + app.user.token
     },
     data
@@ -69,7 +70,7 @@ const getGame = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + app.user.id,
     method: 'GET',
-    header: {
+    headers: {
       Authorization: 'Token token=' + app.user.token
     },
     data

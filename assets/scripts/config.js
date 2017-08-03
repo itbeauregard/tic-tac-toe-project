@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'http://localhost:4741'
+    production: 'http://tic-tac-toe.wdibos.com/games'
   }
 }
 
