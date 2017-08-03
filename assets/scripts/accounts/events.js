@@ -54,10 +54,18 @@ const onSignOut = function (event) {
 
 const onCreateGame = function (event) {
   event.preventDefault()
-  console.log("createGame from events.js ran!")
+  console.log('createGame from events.js ran!')
   api.createGame()
-    .then(ui.createGameSuccess)
-    .catch(ui.createGameFailure)
+    .then(ui.onCreateGameSuccess)
+    .catch(ui.onError)
+}
+
+const onGetGames = function (event) {
+  event.preventDefault()
+  console.log('onGetGames from events.js ran!')
+  api.getGames()
+    .then(ui.onGetGamesSuccess)
+    .catch(ui.onError)
 }
 
 module.exports = {
@@ -65,5 +73,6 @@ module.exports = {
   onChangePassword,
   onCreateAccount,
   onSignOut,
-  onCreateGame
+  onCreateGame,
+  onGetGames
 }

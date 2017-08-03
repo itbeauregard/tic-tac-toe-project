@@ -23,12 +23,13 @@ const onCreateSuccess = function (data) {
   console.log(data.account)
 }
 
-const createGameSuccess = (data) => {
+const onCreateGameSuccess = function () {
   console.log('createGameSuccess from ui.js ran!')
 }
 
-const createGameFailure = (error) => {
-  console.error(error)
+const onGetGamesSuccess = function (data) {
+  console.log(data)
+  console.log('getGames from ui.js ran!')
 }
 
 module.exports = {
@@ -36,6 +37,6 @@ module.exports = {
   onUpdateSuccess,
   onError,
   onCreateSuccess,
-  createGameSuccess,
-  createGameFailure
+  onCreateGameSuccess,
+  onGetGamesSuccess
 }
