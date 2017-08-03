@@ -19,6 +19,10 @@ const gameLogic = require('./gameLogic')
 // TODO 1. understand how the back end logic works and connects to inputs
 //      2. Display user's game stats
 //      3. How will this be played? Are we trying to create a game played online
+//      4.a. Do I need to work curl requests into this somehow? Or is curl just
+//        for testing in the terminal?
+//      4.b. Should I be using stuff like this:
+//        https://git.generalassemb.ly/itbeauregard/library-api-guide/tree/master/scripts
 
 // On document ready
 $(() => {
@@ -26,12 +30,12 @@ $(() => {
   $('#change-password').on('submit', accountEvents.onChangePassword)
   $('#create-account').on('submit', accountEvents.onCreateAccount)
   $('#login').on('click', gameLogic.login)
-  $('#create-account').hide()
-  $('#change-password').hide()
-  $('#stalemate-display').hide()
-  $('#win-display').hide()
-  $('#game-board').hide()
-  $('#restart').hide()
+  // $('#create-account').hide()
+  // $('#change-password').hide()
+  // $('#stalemate-display').hide()
+  // $('#win-display').hide()
+  // $('#game-board').hide()
+  // $('#restart').hide()
 
   $('#reveal-change-password').on('click', gameLogic.showChangePassword)
   $('#reveal-new-account').on('click', gameLogic.showCreateAccount)

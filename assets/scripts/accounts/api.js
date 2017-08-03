@@ -4,22 +4,28 @@ const app = require('../store.js')
 
 const loginAccount = function (id) {
   return $.ajax({
-    url: app.host + '/accounts/' + id,
-    method: 'GET'
+    url: app.host + '/sign-in/' + id,
+    method: 'GET',
+    header: {
+      Authorization: 'Token token=' + app.user.token
+    }
   })
 }
 
 const changePassword = function (data) {
   return $.ajax({
-    url: app.host + '/accounts/' + data.account.id,
+    url: app.host + '/change-password/' + app.user.id,
     method: 'PATCH',
-    data: data
+    header: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    data
   })
 }
 
 const createAccount = function (data) {
   return $.ajax({
-    url: app.host + '/accounts/' + data.account.id,
+    url: app.host + '/sign-up/' + app.user.id,
     method: 'POST',
     data: data
   })
