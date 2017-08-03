@@ -27,12 +27,24 @@ const createAccount = function (data) {
   return $.ajax({
     url: app.host + '/sign-up/' + app.user.id,
     method: 'POST',
+    header: "Content-Type: application/json",
     data: data
+  })
+}
+
+const signOut = function (id) {
+  return $.ajax({
+    url: app.host + '/sign-out/' + app.user.id,
+    method: 'DELETE',
+    header: {
+      Authorization: 'Token token=' + app.user.token
+    }
   })
 }
 
 module.exports = {
   loginAccount,
   changePassword,
-  createAccount
+  createAccount,
+  signOut
 }

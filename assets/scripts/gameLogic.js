@@ -1,5 +1,4 @@
 
-
 // Create object to hold variables and callback functions
 const game = {
   // Create array for game play storage of X and O

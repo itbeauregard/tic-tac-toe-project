@@ -28,15 +28,10 @@ const onLogin = function (event) {
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target) // this is the form input { book: { 'author': ..., }}
-  const account = data.account // {id: ..., 'author': ..., 'title': ...}
-
-  if (account.id.length !== 0) {
-    accountsApi.changePassword(data) // returns a JQXhr object ($.ajax({}))
-      .then(accountsUi.onUpdateSuccess)
-      .catch(accountsUi.onError)
-  } else {
-    console.error('Please provide an account id!')
-  }
+  // {id: ..., 'author': ..., 'title': ...}
+  accountsApi.changePassword(data) // returns a JQXhr object ($.ajax({}))
+    .then(accountsUi.onUpdateSuccess)
+    .catch(accountsUi.onError)
 }
 
 const onCreateAccount = function (event) {
@@ -48,8 +43,18 @@ const onCreateAccount = function (event) {
     .catch(accountsUi.onError)
 }
 
+const onSignOut = function (event) {
+  event.preventDefault()
+
+  const data = getFormFields(event.target)
+  accountsApi.createAccount(data)
+    .then(accountsUi.onCreateSuccess)
+    .catch(accountsUi.onError)
+}
+
 module.exports = {
   onLogin,
   onChangePassword,
-  onCreateAccount
+  onCreateAccount,
+  onSignOut
 }
