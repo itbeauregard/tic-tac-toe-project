@@ -45,5 +45,5 @@ $(() => {
   $('.cell').on('click', function () {
     gameLogic.markCell(parseInt(this.id))
   })
-  $('#restart').on('click', gameLogic.restartGame)
+  $('#createGame').on('click', gameLogic.restartGame)
 })
