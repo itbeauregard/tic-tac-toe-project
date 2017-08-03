@@ -3,13 +3,12 @@
 const app = require('../store.js')
 const config = require('../config.js')
 
-const loginAccount = function (id) {
+const loginAccount = function (data) {
+  console.log(data)
   return $.ajax({
-    url: app.host + '/sign-in/' + id,
-    method: 'GET',
-    header: {
-      Authorization: 'Token token=' + app.user.token
-    }
+    url: app.host + '/sign-in/',
+    method: 'POST',
+    data
   })
 }
 
@@ -25,10 +24,10 @@ const changePassword = function (data) {
 }
 
 const createAccount = function (data) {
+  console.log('createAccount from api.js ran!')
   return $.ajax({
-    url: app.host + '/sign-up/' + app.user.id,
+    url: app.host + '/sign-up/',
     method: 'POST',
-    header: 'Content-Type: application/json',
     data: data
   })
 }
@@ -48,9 +47,7 @@ const createGame = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/games/',
     method: 'POST',
-    header: {
-      Authorization: 'Token token=' + app.user.token
-    }
+    data
   })
 }
 
@@ -61,7 +58,8 @@ const getGames = function (data) {
     method: 'GET',
     header: {
       Authorization: 'Token token=' + app.user.token
-    }
+    },
+    data
   })
 }
 

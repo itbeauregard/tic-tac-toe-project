@@ -13,15 +13,9 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const onLogin = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  const account = data.account
-
-  if (account.id.length !== 0) {
-    api.loginAccount(account.id)
-      .then(ui.onSuccess)
-      .catch(ui.onError)
-  } else {
-    console.log('Please provide an account id!')
-  }
+  api.loginAccount(data)
+    .then(ui.onSuccess)
+    .catch(ui.onError)
 }
 
 // Where does event come from?
@@ -35,8 +29,9 @@ const onChangePassword = function (event) {
 }
 
 const onCreateAccount = function (event) {
+  // Prevents page refresh
   event.preventDefault()
-
+  console.log('onCreateAccount from events.js ran!')
   const data = getFormFields(event.target)
   api.createAccount(data)
     .then(ui.onCreateSuccess)

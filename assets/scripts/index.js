@@ -27,6 +27,7 @@ $(() => {
   $('#account-login').on('submit', accountEvents.onLogin)
   $('#change-password').on('submit', accountEvents.onChangePassword)
   $('#create-account').on('submit', accountEvents.onCreateAccount)
+  // will need to clear page to login to start game
   $('#account-signout').on('submit', accountEvents.onSignOut)
   $('#createGame').on('submit', accountEvents.onCreateGame)
   $('#getGames').on('submit', accountEvents.onGetGames)
