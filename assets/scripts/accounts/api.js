@@ -42,9 +42,21 @@ const signOut = function (id) {
   })
 }
 
+const createGame = function (data) {
+  console.log('createGame from api.js ran!')
+  return $.ajax({
+    url: config.apiOrigin + '/games/',
+    method: 'POST',
+    header: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
 module.exports = {
   loginAccount,
   changePassword,
   createAccount,
-  signOut
+  signOut,
+  createGame
 }

@@ -23,9 +23,19 @@ const onCreateSuccess = function (data) {
   console.log(data.account)
 }
 
+const createGameSuccess = (data) => {
+  console.log('createGameSuccess from ui.js ran!')
+}
+
+const createGameFailure = (error) => {
+  console.error(error)
+}
+
 module.exports = {
   onSuccess,
   onUpdateSuccess,
   onError,
-  onCreateSuccess
+  onCreateSuccess,
+  createGameSuccess,
+  createGameFailure
 }

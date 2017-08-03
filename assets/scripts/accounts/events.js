@@ -1,7 +1,7 @@
 'use strict'
 
-const accountsApi = require('./api.js')
-const accountsUi = require('./ui.js')
+const api = require('./api.js')
+const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
 // get in the habit of naming your handlers, it eases debugging.
@@ -16,9 +16,9 @@ const onLogin = function (event) {
   const account = data.account
 
   if (account.id.length !== 0) {
-    accountsApi.loginAccount(account.id)
-      .then(accountsUi.onSuccess)
-      .catch(accountsUi.onError)
+    api.loginAccount(account.id)
+      .then(ui.onSuccess)
+      .catch(ui.onError)
   } else {
     console.log('Please provide an account id!')
   }
@@ -29,32 +29,41 @@ const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target) // this is the form input { book: { 'author': ..., }}
   // {id: ..., 'author': ..., 'title': ...}
-  accountsApi.changePassword(data) // returns a JQXhr object ($.ajax({}))
-    .then(accountsUi.onUpdateSuccess)
-    .catch(accountsUi.onError)
+  api.changePassword(data) // returns a JQXhr object ($.ajax({}))
+    .then(ui.onUpdateSuccess)
+    .catch(ui.onError)
 }
 
 const onCreateAccount = function (event) {
   event.preventDefault()
 
   const data = getFormFields(event.target)
-  accountsApi.createAccount(data)
-    .then(accountsUi.onCreateSuccess)
-    .catch(accountsUi.onError)
+  api.createAccount(data)
+    .then(ui.onCreateSuccess)
+    .catch(ui.onError)
 }
 
 const onSignOut = function (event) {
   event.preventDefault()
 
   const data = getFormFields(event.target)
-  accountsApi.createAccount(data)
-    .then(accountsUi.onCreateSuccess)
-    .catch(accountsUi.onError)
+  api.createAccount(data)
+    .then(ui.onCreateSuccess)
+    .catch(ui.onError)
+}
+
+const onCreateGame = function (event) {
+  event.preventDefault()
+  console.log("createGame from events.js ran!")
+  api.createGame()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
 }
 
 module.exports = {
   onLogin,
   onChangePassword,
   onCreateAccount,
-  onSignOut
+  onSignOut,
+  onCreateGame
 }

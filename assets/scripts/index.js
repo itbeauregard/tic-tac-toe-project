@@ -21,8 +21,6 @@ const gameLogic = require('./gameLogic')
 //      3. How will this be played? Are we trying to create a game played online
 //      4.a. Do I need to work curl requests into this somehow? Or is curl just
 //        for testing in the terminal?
-//      4.b. Should I be using stuff like this:
-//        https://git.generalassemb.ly/itbeauregard/library-api-guide/tree/master/scripts
 
 // On document ready
 $(() => {
@@ -30,6 +28,7 @@ $(() => {
   $('#change-password').on('submit', accountEvents.onChangePassword)
   $('#create-account').on('submit', accountEvents.onCreateAccount)
   $('#account-signout').on('submit', accountEvents.onSignOut)
+  $('#createGame').on('submit', accountEvents.onCreateGame)
   $('#login').on('click', gameLogic.login)
   // $('#create-account').hide()
   // $('#change-password').hide()
