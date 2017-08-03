@@ -1,6 +1,9 @@
 'use strict'
 
+const app = require('../store.js')
+
 const onSuccess = function (data) {
+  app.user = data.user
   console.log('data is ', data)
   if (!data) {
     console.warn('Either you deleted something, or something went wrong.')
@@ -20,6 +23,8 @@ const onError = function (response) {
 }
 
 const onCreateSuccess = function (data) {
+  app.user = data.user
+  console.log(data)
   console.log(data.account)
 }
 
@@ -28,6 +33,7 @@ const onCreateGameSuccess = function () {
 }
 
 const onGetGamesSuccess = function (data) {
+  app.data = data.user
   console.log(data)
   console.log('getGames from ui.js ran!')
 }

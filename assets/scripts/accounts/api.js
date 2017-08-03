@@ -13,6 +13,7 @@ const loginAccount = function (data) {
 }
 
 const changePassword = function (data) {
+  console.log(app.user)
   return $.ajax({
     url: app.host + '/change-password/' + app.user.id,
     method: 'PATCH',
