@@ -8,6 +8,9 @@ const loginAccount = function (data) {
   return $.ajax({
     url: app.host + '/sign-in/',
     method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
     data
   })
 }
@@ -49,6 +52,9 @@ const createGame = function (data) {
   return $.ajax({
     url: app.host + '/games',
     method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
     data
   })
 }
