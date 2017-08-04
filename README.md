@@ -12,13 +12,13 @@ The page was deployed on gitHub pages [at this address](https://itbeauregard.git
 The process started humbly with some [very](http://imgur.com/xhpasJE) [rough](http://imgur.com/uLqgW3B) [wireframes](http://imgur.com/rUGsj62). All I was certain about was that I wanted a cool font. I perused the Google Fonts collection for neat one.
 
 I came up with some user stories that weren't too fancy:
-  As a registered user, I want to be able to play a game and know when I finish the game.
-  As an unregistered user, I would like to quickly sign up for an account.
-  As a registered user, I would like to be able to change my password.
-  As a registered user, I should be able to see my total games and score history.
-  As a registered game player, I'd like to see some celebration when I am victorious.
-  As a registered game player, I'd like to be able to restart my game while in the middle of a game.
-  As a registered user, I'd like to be able to play this game with my friends while they are on their computers.
+* As a registered user, I want to be able to play a game and know when I finish the game.
+* As an unregistered user, I would like to quickly sign up for an account.
+* As a registered user, I would like to be able to change my password.
+* As a registered user, I should be able to see my total games and score history.
+* As a registered game player, I'd like to see some celebration when I am victorious.
+* As a registered game player, I'd like to be able to restart my game while in the middle of a game.
+* As a registered user, I'd like to be able to play this game with my friends while they are on their computers.
 
 When it came to coding, I found the game logic easy to conceptualize. After the boggle challenge, I was feeling pretty confident with using arrays to store game data so that was what I started with. I had spent a significant amount of time following the WatchandCode series on making a todo list app and that tutorial gave me the idea to put a whole bunch of functions into an object with the arrays. I choose functions that were more directly related to manipulation of the arrays, such as the isMarked function that checks whether the board is marked at a particular index.
 
@@ -36,4 +36,4 @@ As far as resources were concerned, I relied heavily on the library-api-guide an
 
 3. Cross platform compatibility: right now, my app is a bit too small for full screen and a bit too big for smart phone. I need to add in some media queries to adjust the size of the game for various window sizes.
 
-4. Better design: I got my app to place where I don't hate looking at it, but I think it could certainly be more visually appealing. I'd like the buttons and their fonts to be a bit jazzier. 
+4. Better design: I got my app to place where I don't hate looking at it, but I think it could certainly be more visually appealing. I'd like the buttons and their fonts to be a bit jazzier.
