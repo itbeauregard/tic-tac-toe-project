@@ -2,7 +2,8 @@
 
 const config = {
   apiOrigins: {
-    production: 'http://localhost:4741'
+    production: 'https://aqueous-atoll-85096.herokuapp.com'
+    // production: 'http://localhost:4741'
   }
 }
 
