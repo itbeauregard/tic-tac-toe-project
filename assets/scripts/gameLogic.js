@@ -74,6 +74,7 @@ const markCell = function (index) {
 const loginScreen = function () {
   $('#account-login').show()
   $('#reveal-new-account').show()
+  $('#reveal-change-password').hide()
   $('#create-account').hide()
   $('#change-password').hide()
   $('#stalemate-display').hide()
@@ -90,6 +91,7 @@ const login = function () {
   $('#account-login').hide()
   $('#reveal-new-account').hide()
   $('#create-game').show()
+  $('#reveal-change-password').show()
 }
 
 const createGame = function () {

@@ -1,6 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Holtwood+One+SC|Modak|Monofett|Plaster|Ruslan+Display|Sigmar+One');
+@import url('https://fonts.googleapis.com/css?family=Plaster');
 
 $border-style: 1px solid #000;
 
@@ -14,11 +14,25 @@ h1 {
   font-size: 75px;
 }
 
+// Add @media query for smart phone size
+
+h2 {
+  font-family: 'Plaster', sans-serif;
+  font-weight: 100;
+}
+
+input {
+  border-radius: 30px;
+  height: 30px;
+  margin-top: 10px;
+}
+
 .row {
   width: 305px;
 }
 
-.top, .mid {
+.top,
+.mid {
   border-bottom: $border-style;
 }
 
@@ -31,8 +45,8 @@ h1 {
 }
 
 .container {
-  width: 305px;
   margin-top: 20px;
+  width: 305px;
 }
 
 .cell {
@@ -44,5 +58,11 @@ h1 {
 }
 
 .btn {
-  margin: 10px;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.btn-lg {
+  height: 45px;
+  margin: 5px;
 }
