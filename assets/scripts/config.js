@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://tic-tac-toe.wdibos.com'
+    production: 'http://tic-tac-toe.wdibos.com'
   }
 }
 

@@ -1,5 +1,5 @@
 'use strict'
 
 module.exports = {
-  host: 'https://tic-tac-toe.wdibos.com'
+  host: 'http://tic-tac-toe.wdibos.com'
 }
