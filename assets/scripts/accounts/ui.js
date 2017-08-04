@@ -37,7 +37,7 @@ const onSignOutSuccess = function () {
 }
 
 const onCreateGameSuccess = function (data) {
-  app.user = data.user
+  // app.user = data.user
   console.log(data)
   console.log('createGameSuccess from ui.js ran!')
 }
