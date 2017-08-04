@@ -37,3 +37,5 @@ As far as resources were concerned, I relied heavily on the library-api-guide an
 3. Cross platform compatibility: right now, my app is a bit too small for full screen and a bit too big for smart phone. I need to add in some media queries to adjust the size of the game for various window sizes.
 
 4. Better design: I got my app to place where I don't hate looking at it, but I think it could certainly be more visually appealing. I'd like the buttons and their fonts to be a bit jazzier.
+
+5. Remove console.logs: One of the requirements of the project is to not have any errors or warnings displayed in the console. I have MANY. I chose to keep them because I anticipate I will need to continue troubleshooting. I look forward to having a clean console output in the future. 
