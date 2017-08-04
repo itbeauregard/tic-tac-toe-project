@@ -31,12 +31,14 @@ const onCreateSuccess = function (data) {
 }
 
 const onSignOutSuccess = function () {
-  app.user = null
+  // app.user = null
   console.log('sign out successful')
   // console.log(data.account)
 }
 
-const onCreateGameSuccess = function () {
+const onCreateGameSuccess = function (data) {
+  app.user = data.user
+  console.log(data)
   console.log('createGameSuccess from ui.js ran!')
 }
 
