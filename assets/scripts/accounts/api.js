@@ -49,6 +49,9 @@ const signOut = function () {
 
 const createGame = function (data) {
   console.log('createGame from api.js ran!')
+  console.log(app.user)
+  console.log(app.host)
+  console.log(app.user.token)
   return $.ajax({
     url: app.host + '/games',
     method: 'POST',

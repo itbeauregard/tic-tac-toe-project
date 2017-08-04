@@ -5,7 +5,7 @@ const app = require('../store.js')
 const config = require('../config.js')
 
 const onSuccess = function (data) {
-  // app.user = data.user
+  app.user = data.user
   console.log('data is ', data)
   if (!data) {
     console.warn('Either you deleted something, or something went wrong.')
@@ -25,7 +25,7 @@ const onError = function (response) {
 }
 
 const onCreateSuccess = function (data) {
-  // app.user = data.user
+  app.user = data.user
   console.log(data)
   console.log(data.account)
 }

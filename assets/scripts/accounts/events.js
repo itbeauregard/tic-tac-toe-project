@@ -13,6 +13,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const onLogin = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log('data is ' + data)
   api.loginAccount(data)
     .then(ui.onSuccess)
     .catch(ui.onError)
@@ -33,6 +34,7 @@ const onCreateAccount = function (event) {
   event.preventDefault()
   console.log('onCreateAccount from events.js ran!')
   const data = getFormFields(event.target)
+  console.log('data is ' + data)
   api.createAccount(data)
     .then(ui.onCreateSuccess)
     .catch(ui.onError)
@@ -58,7 +60,8 @@ const onCreateGame = function (event) {
 const onGetGames = function (event) {
   event.preventDefault()
   console.log('onGetGames from events.js ran!')
-  api.getGames()
+  const data = getFormFields(event.target)
+  api.getGames(data)
     .then(ui.onGetGamesSuccess)
     .catch(ui.onError)
 }
