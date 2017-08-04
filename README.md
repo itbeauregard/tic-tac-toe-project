@@ -38,4 +38,6 @@ As far as resources were concerned, I relied heavily on the library-api-guide an
 
 4. Better design: I got my app to place where I don't hate looking at it, but I think it could certainly be more visually appealing. I'd like the buttons and their fonts to be a bit jazzier.
 
-5. Remove console.logs: One of the requirements of the project is to not have any errors or warnings displayed in the console. I have MANY. I chose to keep them because I anticipate I will need to continue troubleshooting. I look forward to having a clean console output in the future. 
+5. Remove console.logs: One of the requirements of the project is to not have any errors or warnings displayed in the console. I have MANY. I chose to keep them because I anticipate I will need to continue troubleshooting. I look forward to having a clean console output in the future.
+
+6. Action validation for the user: Right now, my console.logs are the only thing telling me whether an account action was successful. The jQuery alters the page assuming success, whether the user logs in with the right or wrong password. I would like to incorporate some validation code on the back end that assesses whether a user's actions were correct and some front end logic that displays either success or a need to try again.
