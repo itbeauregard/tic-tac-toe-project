@@ -5,7 +5,7 @@ const app = require('../store.js')
 const config = require('../config.js')
 
 const onSuccess = function (data) {
-  app.user = data.user
+  // app.user = data.user
   console.log('data is ', data)
   if (!data) {
     console.warn('Either you deleted something, or something went wrong.')
@@ -25,7 +25,7 @@ const onError = function (response) {
 }
 
 const onCreateSuccess = function (data) {
-  app.user = data.user
+  // app.user = data.user
   console.log(data)
   console.log(data.account)
 }
@@ -43,13 +43,13 @@ const onCreateGameSuccess = function (data) {
 }
 
 const onGetGamesSuccess = function (data) {
-  app.data = data.user
+  // app.data = data.user
   console.log(data)
   console.log('onGetGamesSuccess from ui.js ran!')
 }
 
 const onGetGameSuccess = function (data) {
-  app.data = data.user
+  // app.data = data.user
   console.log(data)
   console.log('onGetGameSuccess from ui.js ran!')
 }
@@ -91,13 +91,13 @@ const onGetGameSuccess = function (data) {
 //   })
 // }
 const onJoinGameSuccess = function (data) {
-  app.user = data.user
+  // app.user = data.user
   console.log(data)
   console.log('onJoinGameSuccess from ui.js ran!')
 }
 
 const onUpdateGameStateSuccess = function (data) {
-  app.user = data.user
+  // app.user = data.user
   console.log(data)
   console.log('onUpdateGameStateSuccess from ui.js ran!')
 }
