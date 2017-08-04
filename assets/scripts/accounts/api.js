@@ -28,7 +28,7 @@ const changePassword = function (data) {
 const createAccount = function (data) {
   console.log('createAccount from api.js ran!')
   return $.ajax({
-    url: app.host + '/sign-up/',
+    url: app.host + '/sign-up',
     method: 'POST',
     data: data
   })
@@ -47,7 +47,7 @@ const signOut = function () {
 const createGame = function (data) {
   console.log('createGame from api.js ran!')
   return $.ajax({
-    url: config.apiOrigin + '/games',
+    url: app.host + '/games',
     method: 'POST',
     data
   })
