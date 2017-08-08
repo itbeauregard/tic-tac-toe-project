@@ -83,6 +83,9 @@ const loginScreen = function () {
   $('#restart').hide()
   $('#create-game').hide()
   $('#game-buttons').hide()
+  $('#login-error').hide()
+  $('#password-error').hide()
+  $('#password-success').hide()
 }
 
 // Hides the login buttons and form, then shows the game board with a restart button

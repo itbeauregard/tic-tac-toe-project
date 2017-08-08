@@ -15,8 +15,8 @@ const onLogin = function (event) {
   const data = getFormFields(event.target)
   console.log('data is ' + data)
   api.loginAccount(data)
-    .then(ui.onSuccess)
-    .catch(ui.onError)
+    .then(ui.onLoginSuccess)
+    .catch(ui.onLoginError)
 }
 
 // Where does event come from?
@@ -25,8 +25,8 @@ const onChangePassword = function (event) {
   const data = getFormFields(event.target) // this is the form input { book: { 'author': ..., }}
   // {id: ..., 'author': ..., 'title': ...}
   api.changePassword(data) // returns a JQXhr object ($.ajax({}))
-    .then(ui.onUpdateSuccess)
-    .catch(ui.onError)
+    .then(ui.onChangePasswordSuccess)
+    .catch(ui.onChangePasswordError)
 }
 
 const onCreateAccount = function (event) {

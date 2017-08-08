@@ -3,25 +3,32 @@
 const app = require('../store.js')
 // const resourceWatcher = require('./resource-watcher-0.1.0.js')
 const config = require('../config.js')
+const gameLogic = require('../gameLogic.js')
 
-const onSuccess = function (data) {
+const onLoginSuccess = function (data) {
   app.user = data.user
   console.log('data is ', data)
-  if (!data) {
-    console.warn('Either you deleted something, or something went wrong.')
-  } else if (data.account) {
-    console.log(data.account)
-  } else {
-    console.table(data.accounts)
-  }
+  gameLogic.login()
+  // Welcome the user
 }
 
-const onUpdateSuccess = function () {
+const onLoginError = function (response) {
+  console.log(response)
+  $('#login-error').show()
+  // add a warning that says the login id does not exist
+  // add warning if login password is incorrect
+  // reset to login page
+}
+
+const onChangePasswordSuccess = function () {
   console.log('You successfully updated the account!')
+  gameLogic.login()
+  $('#password-success').show()
 }
 
-const onError = function (response) {
-  console.error(response)
+const onChangePasswordError = function (response) {
+  console.log(response)
+  $('#password-error').show()
 }
 
 const onCreateSuccess = function (data) {
@@ -102,15 +109,21 @@ const onUpdateGameStateSuccess = function (data) {
   console.log('onUpdateGameStateSuccess from ui.js ran!')
 }
 
+const onError = function (response) {
+  console.error(response)
+}
+
 module.exports = {
-  onSuccess,
-  onUpdateSuccess,
-  onError,
+  onLoginSuccess,
+  onLoginError,
+  onChangePasswordSuccess,
+  onChangePasswordError,
   onCreateSuccess,
   onSignOutSuccess,
   onCreateGameSuccess,
   onGetGamesSuccess,
   onGetGameSuccess,
   onJoinGameSuccess,
-  onUpdateGameStateSuccess
+  onUpdateGameStateSuccess,
+  onError
 }

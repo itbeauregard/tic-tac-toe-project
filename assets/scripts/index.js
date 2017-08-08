@@ -36,7 +36,6 @@ $(() => {
 
   gameLogic.loginScreen()
 
-  $('#login').on('click', gameLogic.login)
   $('#create-game').on('click', gameLogic.createGame)
   // Sign out page change required
   $('#signout').on('click', gameLogic.signOut)
@@ -44,8 +43,6 @@ $(() => {
   $('#reveal-new-account').on('click', gameLogic.showCreateAccount)
   // When account is created, return user to login screen
   $('#create-button').on('click', gameLogic.loginScreen)
-  // When password is changed, return user to login screen
-  $('#change-button').on('click', gameLogic.loginScreen)
   // On click, run markCell function from the gameLogic file
   $('.cell').on('click', function () {
     gameLogic.markCell(parseInt(this.id))

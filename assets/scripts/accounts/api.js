@@ -86,8 +86,7 @@ const getGame = function (data) {
   })
 }
 
-// TODO check whether I should be passing in id here
-const joinGame = function (id) {
+const joinGame = function () {
   console.log('joinGame from api.js ran!')
   return $.ajax({
     url: config.apiOrigin + '/games/' + app.user.id,
