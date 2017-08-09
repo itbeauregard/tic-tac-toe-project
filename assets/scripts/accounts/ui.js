@@ -5,9 +5,9 @@ const app = require('../store.js')
 const config = require('../config.js')
 const gameLogic = require('../gameLogic.js')
 
-const onLoginSuccess = function (data) {
-  app.user = data.user
-  console.log('data is ', data)
+const onLoginSuccess = function () {
+  // TODO figure what should be here
+  console.log('onLoginSuccess in ui.js ran!')
   gameLogic.login()
   // Welcome the user
 }
@@ -32,35 +32,45 @@ const onChangePasswordError = function (response) {
 }
 
 const onCreateSuccess = function (data) {
-  app.user = data.user
   console.log(data)
   console.log(data.account)
 }
 
 const onSignOutSuccess = function () {
-  // app.user = null
   console.log('sign out successful')
-  // console.log(data.account)
+
 }
 
 const onCreateGameSuccess = function (data) {
-  // app.user = data.user
   console.log(data)
   console.log('createGameSuccess from ui.js ran!')
 }
 
 const onGetGamesSuccess = function (data) {
-  // app.data = data.user
   console.log(data)
   console.log('onGetGamesSuccess from ui.js ran!')
 }
 
 const onGetGameSuccess = function (data) {
-  // app.data = data.user
   console.log(data)
   console.log('onGetGameSuccess from ui.js ran!')
 }
 
+const onJoinGameSuccess = function (data) {
+  // app.user = data.user
+  console.log(data)
+  console.log('onJoinGameSuccess from ui.js ran!')
+}
+
+const onUpdateGameStateSuccess = function (data) {
+  // app.user = data.user
+  console.log(data)
+  console.log('onUpdateGameStateSuccess from ui.js ran!')
+}
+
+const onError = function (response) {
+  console.error(response)
+}
 // const onJoinGameSuccess = (data) => {
 //   app.user = data.user
 //   app.game = data.game
@@ -97,21 +107,7 @@ const onGetGameSuccess = function (data) {
 //     }
 //   })
 // }
-const onJoinGameSuccess = function (data) {
-  // app.user = data.user
-  console.log(data)
-  console.log('onJoinGameSuccess from ui.js ran!')
-}
 
-const onUpdateGameStateSuccess = function (data) {
-  // app.user = data.user
-  console.log(data)
-  console.log('onUpdateGameStateSuccess from ui.js ran!')
-}
-
-const onError = function (response) {
-  console.error(response)
-}
 
 module.exports = {
   onLoginSuccess,
