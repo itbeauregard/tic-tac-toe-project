@@ -5,10 +5,11 @@ const app = require('../store.js')
 const config = require('../config.js')
 const gameLogic = require('../gameLogic.js')
 
-const onLoginSuccess = function () {
+const onLoginSuccess = function (data) {
   // TODO figure what should be here
   console.log('onLoginSuccess in ui.js ran!')
   gameLogic.login()
+  app.user = data.user
   // Welcome the user
 }
 
@@ -38,6 +39,7 @@ const onCreateSuccess = function (data) {
 
 const onSignOutSuccess = function () {
   console.log('sign out successful')
+  app.user = null
 }
 
 const onCreateGameSuccess = function (data) {

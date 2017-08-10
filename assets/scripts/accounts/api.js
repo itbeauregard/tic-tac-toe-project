@@ -7,7 +7,12 @@ const loginAccount = function (data) {
   return $.ajax({
     url: app.host + '/sign-in/',
     method: 'POST',
-    data
+    data: {
+      'credentials': {
+        'email': data.credentials.email,
+        'password': data.credentials.password
+      }
+    }
   })
 }
 
@@ -29,7 +34,13 @@ const createAccount = function (data) {
   return $.ajax({
     url: app.host + '/sign-up',
     method: 'POST',
-    data: data
+    data: {
+      'credentials': {
+        'email': data.credentials.email,
+        'password': data.credentials.password,
+        'password_confirmation': data.credentials.password
+      }
+    }
   })
 }
 
