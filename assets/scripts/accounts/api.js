@@ -104,10 +104,22 @@ const joinGame = function () {
 
 const updateGameState = function (data) {
   console.log('updateGameState from api.js ran!')
+  console.log(data)
   return $.ajax({
-    url: config.apiOrigin + '/games/' + app.user.id,
+    url: app.host + '/games/' + app.game.id,
     method: 'PATCH',
-    data
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': data.index,
+          'value': data.value
+        },
+        'over': data.over
+      }
+    }
   })
 }
 

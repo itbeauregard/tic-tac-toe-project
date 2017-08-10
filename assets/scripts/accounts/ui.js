@@ -3,12 +3,20 @@
 const app = require('../store.js')
 // const resourceWatcher = require('./resource-watcher-0.1.0.js')
 const config = require('../config.js')
-const gameLogic = require('../gameLogic.js')
+// const gameLogic = require('./gameLogic.js')
+
+// added this jQuery function from gameLogic to avoid a circular dependency
+const login = function () {
+  $('#account-login').hide()
+  $('#reveal-new-account').hide()
+  $('#create-game').show()
+  $('#reveal-change-password').show()
+}
 
 const onLoginSuccess = function (data) {
   // TODO figure what should be here
   console.log('onLoginSuccess in ui.js ran!')
-  gameLogic.login()
+  login()
   app.user = data.user
   $('#login-error').hide()
   // Welcome the user
@@ -24,7 +32,7 @@ const onLoginError = function (response) {
 
 const onChangePasswordSuccess = function () {
   console.log('You successfully updated the account!')
-  gameLogic.login()
+  login()
   $('#password-success').show()
 }
 
@@ -68,7 +76,6 @@ const onJoinGameSuccess = function (data) {
 }
 
 const onUpdateGameStateSuccess = function (data) {
-  // app.user = data.user
   console.log(data)
   console.log('onUpdateGameStateSuccess from ui.js ran!')
   // update the moves

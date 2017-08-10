@@ -14,7 +14,7 @@ $(() => {
 // require('./example');
 //
 const accountEvents = require('./accounts/events')
-const gameLogic = require('./gameLogic')
+const gameLogic = require('./accounts/gameLogic')
 
 // TODO 1. understand how the back end logic works and connects to inputs
 //      2. Display user's game stats
@@ -32,7 +32,6 @@ $(() => {
   $('#get-games').on('submit', accountEvents.onGetGames)
   $('#get-game').on('submit', accountEvents.onGetGame)
   $('#join-game').on('submit', accountEvents.onJoinGame)
-  $('#update-game-state').on('submit', accountEvents.onUpdateGameState)
 
   gameLogic.loginScreen()
   $('#score-board').hide()

@@ -12,7 +12,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onLogin = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const data = getFormFields(this)
   console.log('data is ' + data)
   api.loginAccount(data)
     .then(ui.onLoginSuccess)
@@ -22,7 +22,7 @@ const onLogin = function (event) {
 // Where does event come from?
 const onChangePassword = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target) // this is the form input { book: { 'author': ..., }}
+  const data = getFormFields(this) // this is the form input { book: { 'author': ..., }}
   // {id: ..., 'author': ..., 'title': ...}
   api.changePassword(data) // returns a JQXhr object ($.ajax({}))
     .then(ui.onChangePasswordSuccess)
@@ -33,7 +33,7 @@ const onCreateAccount = function (event) {
   // Prevents page refresh
   event.preventDefault()
   console.log('onCreateAccount from events.js ran!')
-  const data = getFormFields(event.target)
+  const data = getFormFields(this)
   console.log('data is ' + data)
   api.createAccount(data)
     .then(ui.onCreateSuccess)
@@ -81,10 +81,10 @@ const onJoinGame = function (event) {
     .catch(ui.onError)
 }
 
-const onUpdateGameState = function (event) {
+const onUpdateGameState = function (data) {
   event.preventDefault()
   console.log('onUpdateGameState from event.js ran!')
-  api.updateGameState()
+  api.updateGameState(data)
     .then(ui.onUpdateGameStateSuccess)
     .catch(ui.onError)
 }
