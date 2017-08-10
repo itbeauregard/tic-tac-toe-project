@@ -1,4 +1,5 @@
 
+const events = require('./accounts/events')
 // Create object to hold variables and callback functions
 const game = {
   // Create array for game play storage of X and O
@@ -57,12 +58,13 @@ const markCell = function (index) {
     const letter = game.makeMove(index)
     // Put an X or O in the cell
     $('#' + index).append(letter)
+--> events.updateGameState()
     // if > 5 moves have been made and there is a winner
     if (game.xoArray.length < 5 && game.isThereWinner()) {
       $('#game-board').hide()
       $('#winner').append(letter + ' wins, HOORAY!!')
       $('#win-display').show()
-    // TODO reset board and xoArray arrays and redraw user board
+    // TODO add API event
     // Checks if xoArray is empty to check for stalemate
     } else if (game.xoArray.length === 0) {
       $('#game-board').hide()

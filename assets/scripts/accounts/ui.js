@@ -38,7 +38,6 @@ const onCreateSuccess = function (data) {
 
 const onSignOutSuccess = function () {
   console.log('sign out successful')
-
 }
 
 const onCreateGameSuccess = function (data) {
@@ -66,6 +65,7 @@ const onUpdateGameStateSuccess = function (data) {
   // app.user = data.user
   console.log(data)
   console.log('onUpdateGameStateSuccess from ui.js ran!')
+  // update the moves
 }
 
 const onError = function (response) {
@@ -107,7 +107,6 @@ const onError = function (response) {
 //     }
 //   })
 // }
-
 
 module.exports = {
   onLoginSuccess,

@@ -55,16 +55,16 @@
 
   <p class="success" id="password-success">You successfully changed your password!</p>
 
-  <div id="score-board">
-    <div id="heading-row">
-      <div class='player-x'>Player X Wins</div>
-      <div class='moves'>Moves Left</div>
-      <div class='player-o'>Player O Wins</div>
+  <div class="score-board">
+    <div class='row' id="heading-row">
+      <div class='box player-x'>Player X Wins</div>
+      <div class='box moves'>Moves Left</div>
+      <div class='box player-o'>Player O Wins</div>
     </div>
-    <div id="output-row">
-      <div class='player-x' id='x-win-count'></div>
-      <div class='moves' id='moves-left'></div>
-      <div class='player-o' id='o-win-count'></div>
+    <div class='row' id="output-row">
+      <div class='box player-x' id='x-win-count'></div>
+      <div class='box moves' id='moves-left'></div>
+      <div class='box player-o' id='o-win-count'></div>
     </div>
   </div>
 
@@ -92,7 +92,7 @@
       <input class="btn btn-lg reset-button" type="submit" name="submit" value="Start New Game">
   </form>
 
-  <!-- <div id="game-buttons"> -->
+  <div id="game-buttons">
     <form id="get-games">
         <input class="btn btn-lg btn-danger reset-button" type="submit" name="submit" value="Get All Games">
     </form>
@@ -110,7 +110,7 @@
       <input name="game[cell][value]" type="text" value="x">
       <input name="game[over]" type="text" value="false">
     </form> -->
-  <!-- </div> -->
+  </div>
 
   <div id='win-display'>
     <h2 id='winner'></h2>

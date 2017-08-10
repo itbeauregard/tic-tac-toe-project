@@ -35,6 +35,7 @@ $(() => {
   $('#update-game-state').on('submit', accountEvents.onUpdateGameState)
 
   gameLogic.loginScreen()
+  // $('#game-board').show()
 
   $('#create-game').on('click', gameLogic.createGame)
   // Sign out page change required

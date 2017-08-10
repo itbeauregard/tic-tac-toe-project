@@ -62,6 +62,7 @@ const createGame = function (data) {
   })
 }
 
+// Where am I getting data if not from form fields?
 const getGames = function (data) {
   console.log('getGames from api.js ran!')
   return $.ajax({

@@ -6,7 +6,10 @@ $border-style: 1px solid #000;
 
 body {
   text-align: center;
+}
 
+div {
+  border: $border-style;
 }
 
 h1 {
@@ -52,7 +55,8 @@ input {
   border-left: $border-style;
 }
 
-.container {
+.container,
+.score-board {
   margin-top: 20px;
   width: 305px;
 }
@@ -63,6 +67,17 @@ input {
   font-size: 70px;
   height: 100px;
   width: 100px;
+}
+
+.score-board {
+  margin: auto;
+}
+
+.box {
+  float: left;
+  font-size: 20px;
+  height: 75px;
+  width: 101px;
 }
 
 .btn {
