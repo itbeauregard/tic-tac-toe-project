@@ -4,13 +4,9 @@ const app = require('../store.js')
 const config = require('../config.js')
 
 const loginAccount = function (data) {
-  console.log(data)
   return $.ajax({
     url: app.host + '/sign-in/',
     method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + app.user.token
-    },
     data
   })
 }
