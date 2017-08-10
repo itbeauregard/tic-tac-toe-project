@@ -10,6 +10,7 @@ const onLoginSuccess = function (data) {
   console.log('onLoginSuccess in ui.js ran!')
   gameLogic.login()
   app.user = data.user
+  $('#login-error').hide()
   // Welcome the user
 }
 
@@ -39,12 +40,15 @@ const onCreateSuccess = function (data) {
 
 const onSignOutSuccess = function () {
   console.log('sign out successful')
+  // credit to Coptia for this line
   app.user = null
 }
 
 const onCreateGameSuccess = function (data) {
   console.log(data)
   console.log('createGameSuccess from ui.js ran!')
+  app.game = data.game
+  app.game.id = data.game.id
 }
 
 const onGetGamesSuccess = function (data) {
