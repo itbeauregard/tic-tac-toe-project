@@ -62,23 +62,40 @@ const onCreateGameSuccess = function (data) {
 const onGetGamesSuccess = function (data) {
   console.log(data)
   console.log('onGetGamesSuccess from ui.js ran!')
+  // hide everything except the game stats
+  // create variable to store game data array
+
+  const gameArray = data.games
+  let gameStatus
+  // credit to Coptia for this looping idea
+  gameArray.forEach(function (game) {
+    // Return complete if the game is over
+    if (game.over === true) {
+      gameStatus = 'Complete'
+    } else {
+      gameStatus = 'Incomplete'
+    }
+    // TODO display winner somehow. Os tie Xs in number with winner
+    // but how to record stalemate?
+    $('.stats-table').append('<tr><td>' + game.id + '</td><td>' + gameStatus + '</td></tr>')
+  })
 }
 
-const onGetGameSuccess = function (data) {
-  console.log(data)
-  console.log('onGetGameSuccess from ui.js ran!')
-}
-
-const onJoinGameSuccess = function (data) {
-  // app.user = data.user
-  console.log(data)
-  console.log('onJoinGameSuccess from ui.js ran!')
-}
+// const onGetGameSuccess = function (data) {
+//   console.log(data)
+//   console.log('onGetGameSuccess from ui.js ran!')
+// }
+//
+// const onJoinGameSuccess = function (data) {
+//   // app.user = data.user
+//   console.log(data)
+//   console.log('onJoinGameSuccess from ui.js ran!')
+// }
 
 const onUpdateGameStateSuccess = function (data) {
   console.log(data)
   console.log('onUpdateGameStateSuccess from ui.js ran!')
-  // update the moves
+  // TODO If the game is over, update the win tally
 }
 
 const onError = function (response) {
@@ -130,8 +147,8 @@ module.exports = {
   onSignOutSuccess,
   onCreateGameSuccess,
   onGetGamesSuccess,
-  onGetGameSuccess,
-  onJoinGameSuccess,
+  // onGetGameSuccess,
+  // onJoinGameSuccess,
   onUpdateGameStateSuccess,
   onError
 }

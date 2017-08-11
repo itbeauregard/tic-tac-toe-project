@@ -30,11 +30,9 @@ $(() => {
   $('#account-signout').on('submit', accountEvents.onSignOut)
   $('#create-game').on('submit', accountEvents.onCreateGame)
   $('#get-games').on('submit', accountEvents.onGetGames)
-  $('#get-game').on('submit', accountEvents.onGetGame)
-  $('#join-game').on('submit', accountEvents.onJoinGame)
 
-  gameLogic.loginScreen()
-  $('#score-board').hide()
+  // gameLogic.loginScreen()
+
   // $('#game-board').show()
 
   $('#create-game').on('click', gameLogic.createGame)

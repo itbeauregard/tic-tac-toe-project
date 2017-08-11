@@ -70,37 +70,36 @@ const createGame = function (data) {
 }
 
 // Where am I getting data if not from form fields?
-const getGames = function (data) {
+const getGames = function () {
   console.log('getGames from api.js ran!')
   return $.ajax({
-    url: config.apiOrigin + '/games[?over=]',
+    url: app.host + '/games',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + app.user.token
-    },
-    data
+    }
   })
 }
 
-const getGame = function (data) {
-  console.log('getGame from api.js ran!')
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + app.user.id,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + app.user.token
-    },
-    data
-  })
-}
-
-const joinGame = function () {
-  console.log('joinGame from api.js ran!')
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + app.user.id,
-    method: 'PATCH'
-  })
-}
+// const getGame = function (data) {
+//   console.log('getGame from api.js ran!')
+//   return $.ajax({
+//     url: config.apiOrigin + '/games/' + app.user.id,
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + app.user.token
+//     },
+//     data
+//   })
+// }
+//
+// const joinGame = function () {
+//   console.log('joinGame from api.js ran!')
+//   return $.ajax({
+//     url: config.apiOrigin + '/games/' + app.user.id,
+//     method: 'PATCH'
+//   })
+// }
 
 const updateGameState = function (data) {
   console.log('updateGameState from api.js ran!')
@@ -130,7 +129,7 @@ module.exports = {
   signOut,
   createGame,
   getGames,
-  getGame,
-  joinGame,
+  // getGame,
+  // joinGame,
   updateGameState
 }

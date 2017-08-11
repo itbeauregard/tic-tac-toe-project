@@ -59,27 +59,26 @@ const onCreateGame = function (event) {
 const onGetGames = function (event) {
   event.preventDefault()
   console.log('onGetGames from events.js ran!')
-  const data = getFormFields(event.target)
-  api.getGames(data)
+  api.getGames()
     .then(ui.onGetGamesSuccess)
     .catch(ui.onError)
 }
-
-const onGetGame = function (event) {
-  event.preventDefault()
-  console.log('onGetGame from events.js ran!')
-  api.getGame()
-    .then(ui.onGetGameSuccess)
-    .catch(ui.onError)
-}
-
-const onJoinGame = function (event) {
-  event.preventDefault()
-  console.log('onJoinGame from events.js ran!')
-  api.joinGame()
-    .then(ui.onJoinGameSuccess)
-    .catch(ui.onError)
-}
+//
+// const onGetGame = function (event) {
+//   event.preventDefault()
+//   console.log('onGetGame from events.js ran!')
+//   api.getGame()
+//     .then(ui.onGetGameSuccess)
+//     .catch(ui.onError)
+// }
+//
+// const onJoinGame = function (event) {
+//   event.preventDefault()
+//   console.log('onJoinGame from events.js ran!')
+//   api.joinGame()
+//     .then(ui.onJoinGameSuccess)
+//     .catch(ui.onError)
+// }
 
 const onUpdateGameState = function (data) {
   event.preventDefault()
@@ -96,7 +95,7 @@ module.exports = {
   onSignOut,
   onCreateGame,
   onGetGames,
-  onGetGame,
-  onJoinGame,
+  // onGetGame,
+  // onJoinGame,
   onUpdateGameState
 }
