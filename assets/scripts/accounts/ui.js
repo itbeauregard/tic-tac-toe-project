@@ -3,56 +3,125 @@
 const app = require('../store.js')
 // const resourceWatcher = require('./resource-watcher-0.1.0.js')
 const config = require('../config.js')
+// const gameLogic = require('./gameLogic.js')
 
-const onSuccess = function (data) {
-  app.user = data.user
-  console.log('data is ', data)
-  if (!data) {
-    console.warn('Either you deleted something, or something went wrong.')
-  } else if (data.account) {
-    console.log(data.account)
-  } else {
-    console.table(data.accounts)
-  }
+// added this jQuery function from gameLogic to avoid a circular dependency
+const login = function () {
+  $('#account-login').hide()
+  $('#reveal-new-account').hide()
+  $('#change-password').hide()
+  $('#create-game').show()
+  $('#reveal-change-password').show()
+  $('#account-signout').show()
 }
 
-const onUpdateSuccess = function () {
+const onLoginSuccess = function (data) {
+  // TODO figure what should be here
+  console.log('onLoginSuccess in ui.js ran!')
+  login()
+  app.user = data.user
+  $('#login-error').hide()
+  $('#create-account-success').hide()
+  // Welcome the user
+}
+
+const onLoginError = function (response) {
+  console.log(response)
+  $('#login-error').show()
+}
+
+const onChangePasswordSuccess = function () {
   console.log('You successfully updated the account!')
+  login()
+  $('#password-success').show()
+}
+
+const onChangePasswordError = function (response) {
+  console.log(response)
+  $('#password-error').show()
+}
+
+const onCreateAccountSuccess = function (data) {
+  console.log(data)
+  console.log(data.account)
+  $('#create-account-success').show()
+  // Added to remove error message in case of user error
+  $('#create-account-error').hide()
+  $('#create-account').hide()
+  $('#account-login').show()
+  $('#reveal-change-password').show()
+  $('#reveal-new-account').show()
+}
+
+const onCreateAccountError = function (response) {
+  console.log(response)
+  $('#create-account-error').show()
+}
+
+const onSignOutSuccess = function () {
+  console.log('sign out successful')
+  // credit to Coptia for this line
+  app.user = null
+}
+
+const onCreateGameSuccess = function (data) {
+  console.log(data)
+  console.log('createGameSuccess from ui.js ran!')
+  app.game = data.game
+  app.game.id = data.game.id
+  $('#password-success').hide()
+}
+
+const onGetGamesSuccess = function (data) {
+  console.log(data)
+  console.log('onGetGamesSuccess from ui.js ran!')
+  // hide everything except the game stats
+  // presuming that we can only click button from game board screen,
+  //   victory or stalemate screen
+  $('#reveal-change-password').hide()
+  $('#stalemate-display').hide()
+  $('#win-display').hide()
+  $('#game-board').hide()
+  $('#get-games').hide()
+  $('.game-stats').show()
+  // create variable to store game data array
+
+  const gameArray = data.games
+  let gameStatus
+  // credit to Coptia for this looping idea
+  gameArray.forEach(function (game) {
+    // Return complete if the game is over
+    if (game.over === true) {
+      gameStatus = 'Complete'
+    } else {
+      gameStatus = 'Incomplete'
+    }
+    // TODO display winner somehow. Os tie Xs in number with winner
+    // but how to record stalemate?
+    $('.stats-table').append('<tr><td>' + game.id + '</td><td>' + gameStatus + '</td></tr>')
+  })
+}
+
+const onUpdateGameStateSuccess = function (data) {
+  console.log(data)
+  console.log('onUpdateGameStateSuccess from ui.js ran!')
+  // TODO If the game is over, update the win tally
 }
 
 const onError = function (response) {
   console.error(response)
 }
 
-const onCreateSuccess = function (data) {
-  app.user = data.user
-  console.log(data)
-  console.log(data.account)
-}
-
-const onSignOutSuccess = function () {
-  // app.user = null
-  console.log('sign out successful')
-  // console.log(data.account)
-}
-
-const onCreateGameSuccess = function (data) {
-  // app.user = data.user
-  console.log(data)
-  console.log('createGameSuccess from ui.js ran!')
-}
-
-const onGetGamesSuccess = function (data) {
-  // app.data = data.user
-  console.log(data)
-  console.log('onGetGamesSuccess from ui.js ran!')
-}
-
-const onGetGameSuccess = function (data) {
-  // app.data = data.user
-  console.log(data)
-  console.log('onGetGameSuccess from ui.js ran!')
-}
+// const onGetGameSuccess = function (data) {
+//   console.log(data)
+//   console.log('onGetGameSuccess from ui.js ran!')
+// }
+//
+// const onJoinGameSuccess = function (data) {
+//   // app.user = data.user
+//   console.log(data)
+//   console.log('onJoinGameSuccess from ui.js ran!')
+// }
 
 // const onJoinGameSuccess = (data) => {
 //   app.user = data.user
@@ -90,27 +159,19 @@ const onGetGameSuccess = function (data) {
 //     }
 //   })
 // }
-const onJoinGameSuccess = function (data) {
-  // app.user = data.user
-  console.log(data)
-  console.log('onJoinGameSuccess from ui.js ran!')
-}
-
-const onUpdateGameStateSuccess = function (data) {
-  // app.user = data.user
-  console.log(data)
-  console.log('onUpdateGameStateSuccess from ui.js ran!')
-}
 
 module.exports = {
-  onSuccess,
-  onUpdateSuccess,
-  onError,
-  onCreateSuccess,
+  onLoginSuccess,
+  onLoginError,
+  onChangePasswordSuccess,
+  onChangePasswordError,
+  onCreateAccountSuccess,
+  onCreateAccountError,
   onSignOutSuccess,
   onCreateGameSuccess,
   onGetGamesSuccess,
-  onGetGameSuccess,
-  onJoinGameSuccess,
-  onUpdateGameStateSuccess
+  // onGetGameSuccess,
+  // onJoinGameSuccess,
+  onUpdateGameStateSuccess,
+  onError
 }

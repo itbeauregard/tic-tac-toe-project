@@ -13,12 +13,14 @@
 </head>
 <body class="container-fluid">
   <h1 class="one">TIC TAC TOE</h1>
-  <!-- <h1 class="two">TIC TAC TOE</h1>
-  <h1 class="three">TIC TAC TOE</h1>
-  <h1 class="four">TIC TAC TOE</h1>
-  <h1 class="five">TIC TAC TOE</h1>
-  <h1 class="six">tic tac toe</h1>spons -->
 
+  <p class="error" id="password-error">Double check your old password.</p>
+
+  <p class="success" id="password-success">You successfully changed your password!</p>
+
+  <p class="error" id="create-account-error">Either your username is taken or your passwords don't match.</p>
+
+  <p class="success" id="create-account-success">You successfully created an account!</p>
 
   <form class="accounts" id='account-login'>
     <h2>Login to your account</h2>
@@ -28,6 +30,8 @@
     </div>
     <button type="submit" id='login' class='btn btn-default'>Login</button>
   </form>
+
+  <p class="error" id="login-error">Wrong password or email.</p>
 
   <form class='accounts' id='create-account'>
     <h2>Create a new account</h2>
@@ -39,7 +43,6 @@
     <button type="submit" id='create-button' class='btn btn-default'>Create New Account</button>
   </form>
 
-
   <form class='accounts' id='change-password'>
     <h2>Change your password</h2>
     <div class='form-group'>
@@ -49,6 +52,27 @@
     <button type="submit" id="change-button" name='submit' class='btn btn-default'>Change Password</button>
   </form>
 
+  <!-- <div class="score-board" id="score-board">
+    <div class='row' id="heading-row">
+      <div class='box player-x'>Player X Wins</div>
+      <div class='box moves'>Moves Left</div>
+      <div class='box player-o'>Player O Wins</div>
+    </div>
+    <div class='row' id="output-row">
+      <div class='box player-x' id='x-win-count'></div>
+      <div class='box moves' id='moves-left'></div>
+      <div class='box player-o' id='o-win-count'></div>
+    </div>
+  </div> -->
+
+  <div id='win-display'>
+    <h2 id='winner'></h2>
+    <img src="http://i.imgur.com/6nQKPdE.jpg" alt="happy pitbull" width=60%>
+  </div>
+
+  <div id='stalemate-display'>
+    <h2>Nobody wins.</h2>
+  </div>
 
   <div class='container' id='game-board'>
     <div class="row top">
@@ -70,15 +94,22 @@
 
   <!-- <button type='submit' id='restart' class='btn btn-default'>Restart Game</button> -->
 
+  <div class='game-stats'>
+      <table class="stats-table">
+        <thead>
+          <tr>
+            <th>Game ID</th>
+            <th>Game Status</th>
+          </tr>
+        </thead>
+      </table>
+  </div>
+
   <form id="create-game">
-      <input class="btn btn-lg reset-button" type="submit" name="submit" value="Start New Game">
+        <input class="btn btn-default" type="submit" name="submit" value="Start New Game">
   </form>
 
-  <div id="game-buttons">
-    <form id="get-games">
-        <input class="btn btn-lg btn-danger reset-button" type="submit" name="submit" value="Get All Games">
-    </form>
-
+  <!-- <div id="game-buttons">
     <form id="get-game">
         <input class="btn btn-lg btn-danger reset-button" type="submit" name="submit" value="Get Game">
     </form>
@@ -92,25 +123,19 @@
       <input name="game[cell][value]" type="text" value="x">
       <input name="game[over]" type="text" value="false">
     </form>
+  </div> -->
+  <div class="footer">
+    <form id="get-games">
+        <input class="button btn btn-default" type="submit" name="submit" value="Get Game Stats">
+    </form>
+
+    <form class="accounts" id='account-signout'>
+        <button type="submit" id='signout' class='button btn btn-default'>Sign Out</button>
+    </form>
+
+    <button type='submit' id='reveal-new-account' class='button btn btn-default'>Sign up for new account</button>
+    <button type='submit' id='reveal-change-password' class='button btn btn-default'>Change password</button>
   </div>
-
-  <div id='win-display'>
-    <h2 id='winner'></h2>
-    <img src="http://i.imgur.com/6nQKPdE.jpg" alt="happy pitbull" width=60%>
-  </div>
-
-  <div id='stalemate-display'>
-    <h2>Nobody wins.</h2>
-  </div>
-
-  <form class="accounts" id='account-signout'>
-    <div class='form-group'>
-      <button type="submit" id='signout' class='btn btn-default'>Sign Out</button>
-    </div>
-  </form>
-
-  <button type='submit' id='reveal-new-account' class='btn btn-default'>Sign up for new account</button>
-  <button type='submit' id='reveal-change-password' class='btn btn-default'>Change password</button>
 
 </body>
 </html>

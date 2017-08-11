@@ -14,7 +14,7 @@ $(() => {
 // require('./example');
 //
 const accountEvents = require('./accounts/events')
-const gameLogic = require('./gameLogic')
+const gameLogic = require('./accounts/gameLogic')
 
 // TODO 1. understand how the back end logic works and connects to inputs
 //      2. Display user's game stats
@@ -30,22 +30,16 @@ $(() => {
   $('#account-signout').on('submit', accountEvents.onSignOut)
   $('#create-game').on('submit', accountEvents.onCreateGame)
   $('#get-games').on('submit', accountEvents.onGetGames)
-  $('#get-game').on('submit', accountEvents.onGetGame)
-  $('#join-game').on('submit', accountEvents.onJoinGame)
-  $('#update-game-state').on('submit', accountEvents.onUpdateGameState)
 
   gameLogic.loginScreen()
 
-  $('#login').on('click', gameLogic.login)
+  // $('#game-board').show()
+
   $('#create-game').on('click', gameLogic.createGame)
   // Sign out page change required
   $('#signout').on('click', gameLogic.signOut)
   $('#reveal-change-password').on('click', gameLogic.showChangePassword)
   $('#reveal-new-account').on('click', gameLogic.showCreateAccount)
-  // When account is created, return user to login screen
-  $('#create-button').on('click', gameLogic.loginScreen)
-  // When password is changed, return user to login screen
-  $('#change-button').on('click', gameLogic.loginScreen)
   // On click, run markCell function from the gameLogic file
   $('.cell').on('click', function () {
     gameLogic.markCell(parseInt(this.id))

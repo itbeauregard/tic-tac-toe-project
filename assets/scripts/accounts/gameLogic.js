@@ -1,4 +1,3 @@
-
 // Create object to hold variables and callback functions
 const game = {
   // Create array for game play storage of X and O
@@ -51,23 +50,34 @@ const game = {
   }
 }
 
+const gameEvents = require('./events.js')
+
 const markCell = function (index) {
   // Checks if the board's cell is already marked, if false then proceeds
   if (game.isMarked(index) === false) {
     const letter = game.makeMove(index)
     // Put an X or O in the cell
     $('#' + index).append(letter)
+    const data = {
+      'index': index,
+      'value': letter,
+      'over': false
+    }
     // if > 5 moves have been made and there is a winner
     if (game.xoArray.length < 5 && game.isThereWinner()) {
       $('#game-board').hide()
-      $('#winner').append(letter + ' wins, HOORAY!!')
+      $('#winner').append(letter + ' WINS!')
       $('#win-display').show()
-    // TODO reset board and xoArray arrays and redraw user board
+      data.over = true
+    // TODO add API event
     // Checks if xoArray is empty to check for stalemate
     } else if (game.xoArray.length === 0) {
       $('#game-board').hide()
       $('#stalemate-display').show()
+      data.over = true
     }
+    console.log(data)
+    gameEvents.onUpdateGameState(data)
   }
 }
 
@@ -82,7 +92,14 @@ const loginScreen = function () {
   $('#game-board').hide()
   $('#restart').hide()
   $('#create-game').hide()
-  $('#game-buttons').hide()
+  $('#login-error').hide()
+  $('#password-error').hide()
+  $('#password-success').hide()
+  $('#create-account-error').hide()
+  $('#create-account-success').hide()
+  $('#account-signout').hide()
+  $('.game-stats').hide()
+  $('#get-games').hide()
 }
 
 // Hides the login buttons and form, then shows the game board with a restart button
@@ -92,6 +109,7 @@ const login = function () {
   $('#reveal-new-account').hide()
   $('#create-game').show()
   $('#reveal-change-password').show()
+  $('#account-signout').show()
 }
 
 const createGame = function () {
@@ -107,6 +125,9 @@ const createGame = function () {
   $('#win-display').hide()
   $('#stalemate-display').hide()
   $('#game-board').show()
+  $('#get-games').show()
+  $('.game-stats').hide()
+  $('td').empty()
 }
 
 const signOut = function () {

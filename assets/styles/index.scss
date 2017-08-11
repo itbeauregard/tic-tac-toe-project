@@ -6,8 +6,11 @@ $border-style: 1px solid #000;
 
 body {
   text-align: center;
-
 }
+
+// div {
+//   border: $border-style;
+// }
 
 h1 {
   font-family: 'Plaster', sans-serif;
@@ -25,6 +28,26 @@ input {
   border-radius: 30px;
   height: 30px;
   margin-top: 10px;
+}
+
+th {
+  border: $border-style;
+  font-family: 'Plaster', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  width: 300px;
+}
+
+td {
+  font-size: 15px;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
 }
 
 .row {
@@ -57,6 +80,29 @@ input {
   width: 100px;
 }
 
+.game-stats,
+.stats-table {
+  margin: auto;
+  width: 605;
+}
+
+.box {
+  float: left;
+  font-size: 20px;
+  height: 75px;
+  width: 101px;
+}
+
+.footer {
+  background-color: #efefef;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
 .btn {
   border-radius: 20px;
   margin: 5px;
@@ -65,4 +111,8 @@ input {
 .btn-lg {
   height: 45px;
   margin: 5px;
+}
+
+.button {
+  float: right;
 }
