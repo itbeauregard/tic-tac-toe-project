@@ -69,7 +69,6 @@ const markCell = function (index) {
       $('#winner').append(letter + ' WINS!')
       $('#win-display').show()
       data.over = true
-    // TODO add API event
     // Checks if xoArray is empty to check for stalemate
     } else if (game.xoArray.length === 0) {
       $('#game-board').hide()

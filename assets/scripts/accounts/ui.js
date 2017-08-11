@@ -17,7 +17,7 @@ const login = function () {
 
 const onLoginSuccess = function (data) {
   // TODO figure what should be here
-  console.log('onLoginSuccess in ui.js ran!')
+  // console.log('onLoginSuccess in ui.js ran!')
   login()
   app.user = data.user
   $('#login-error').hide()
@@ -26,24 +26,24 @@ const onLoginSuccess = function (data) {
 }
 
 const onLoginError = function (response) {
-  console.log(response)
+  // console.log(response)
   $('#login-error').show()
 }
 
 const onChangePasswordSuccess = function () {
-  console.log('You successfully updated the account!')
+  // console.log('You successfully updated the account!')
   login()
   $('#password-success').show()
 }
 
 const onChangePasswordError = function (response) {
-  console.log(response)
+  // console.log(response)
   $('#password-error').show()
 }
 
 const onCreateAccountSuccess = function (data) {
-  console.log(data)
-  console.log(data.account)
+  // console.log(data)
+  // console.log(data.account)
   $('#create-account-success').show()
   // Added to remove error message in case of user error
   $('#create-account-error').hide()
@@ -54,27 +54,27 @@ const onCreateAccountSuccess = function (data) {
 }
 
 const onCreateAccountError = function (response) {
-  console.log(response)
+  // console.log(response)
   $('#create-account-error').show()
 }
 
 const onSignOutSuccess = function () {
-  console.log('sign out successful')
+  // console.log('sign out successful')
   // credit to Coptia for this line
   app.user = null
 }
 
 const onCreateGameSuccess = function (data) {
-  console.log(data)
-  console.log('createGameSuccess from ui.js ran!')
+  // console.log(data)
+  // console.log('createGameSuccess from ui.js ran!')
   app.game = data.game
   app.game.id = data.game.id
   $('#password-success').hide()
 }
 
 const onGetGamesSuccess = function (data) {
-  console.log(data)
-  console.log('onGetGamesSuccess from ui.js ran!')
+  // console.log(data)
+  // console.log('onGetGamesSuccess from ui.js ran!')
   // hide everything except the game stats
   // presuming that we can only click button from game board screen,
   //   victory or stalemate screen
@@ -85,7 +85,6 @@ const onGetGamesSuccess = function (data) {
   $('#get-games').hide()
   $('.game-stats').show()
   // create variable to store game data array
-
   const gameArray = data.games
   let gameStatus
   // credit to Coptia for this looping idea
@@ -103,13 +102,13 @@ const onGetGamesSuccess = function (data) {
 }
 
 const onUpdateGameStateSuccess = function (data) {
-  console.log(data)
-  console.log('onUpdateGameStateSuccess from ui.js ran!')
+  // console.log(data)
+  // console.log('onUpdateGameStateSuccess from ui.js ran!')
   // TODO If the game is over, update the win tally
 }
 
 const onError = function (response) {
-  console.error(response)
+  // console.error(response)
 }
 
 // const onGetGameSuccess = function (data) {
