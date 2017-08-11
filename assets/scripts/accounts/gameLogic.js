@@ -97,6 +97,7 @@ const loginScreen = function () {
   $('#password-success').hide()
   $('#create-account-error').hide()
   $('#create-account-success').hide()
+  $('#account-signout').hide()
   $('.game-stats').hide()
   $('#get-games').hide()
 }
@@ -108,6 +109,7 @@ const login = function () {
   $('#reveal-new-account').hide()
   $('#create-game').show()
   $('#reveal-change-password').show()
+  $('#account-signout').show()
 }
 
 const createGame = function () {

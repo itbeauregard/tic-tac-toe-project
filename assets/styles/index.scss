@@ -93,6 +93,16 @@ td {
   width: 101px;
 }
 
+.footer {
+  background-color: #efefef;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
 .btn {
   border-radius: 20px;
   margin: 5px;
@@ -101,4 +111,8 @@ td {
 .btn-lg {
   height: 45px;
   margin: 5px;
+}
+
+.button {
+  float: right;
 }

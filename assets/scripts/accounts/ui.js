@@ -12,6 +12,7 @@ const login = function () {
   $('#change-password').hide()
   $('#create-game').show()
   $('#reveal-change-password').show()
+  $('#account-signout').show()
 }
 
 const onLoginSuccess = function (data) {
