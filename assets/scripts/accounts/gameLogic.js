@@ -66,7 +66,7 @@ const markCell = function (index) {
     // if > 5 moves have been made and there is a winner
     if (game.xoArray.length < 5 && game.isThereWinner()) {
       $('#game-board').hide()
-      $('#winner').append(letter + ' wins, HOORAY!!')
+      $('#winner').append(letter + ' WINS!')
       $('#win-display').show()
       data.over = true
     // TODO add API event
@@ -95,6 +95,8 @@ const loginScreen = function () {
   $('#login-error').hide()
   $('#password-error').hide()
   $('#password-success').hide()
+  $('#create-account-error').hide()
+  $('#create-account-success').hide()
   $('.game-stats').hide()
   $('#get-games').hide()
 }

@@ -13,12 +13,14 @@
 </head>
 <body class="container-fluid">
   <h1 class="one">TIC TAC TOE</h1>
-  <!-- <h1 class="two">TIC TAC TOE</h1>
-  <h1 class="three">TIC TAC TOE</h1>
-  <h1 class="four">TIC TAC TOE</h1>
-  <h1 class="five">TIC TAC TOE</h1>
-  <h1 class="six">tic tac toe</h1>spons -->
 
+  <p class="error" id="password-error">Double check your old password.</p>
+
+  <p class="success" id="password-success">You successfully changed your password!</p>
+
+  <p class="error" id="create-account-error">Either your username is taken or your passwords don't match.</p>
+
+  <p class="success" id="create-account-success">You successfully created an account!</p>
 
   <form class="accounts" id='account-login'>
     <h2>Login to your account</h2>
@@ -41,7 +43,6 @@
     <button type="submit" id='create-button' class='btn btn-default'>Create New Account</button>
   </form>
 
-
   <form class='accounts' id='change-password'>
     <h2>Change your password</h2>
     <div class='form-group'>
@@ -50,10 +51,6 @@
     </div>
     <button type="submit" id="change-button" name='submit' class='btn btn-default'>Change Password</button>
   </form>
-
-  <p class="error" id="password-error">Double check your old password.</p>
-
-  <p class="success" id="password-success">You successfully changed your password!</p>
 
   <!-- <div class="score-board" id="score-board">
     <div class='row' id="heading-row">
@@ -67,6 +64,15 @@
       <div class='box player-o' id='o-win-count'></div>
     </div>
   </div> -->
+
+  <div id='win-display'>
+    <h2 id='winner'></h2>
+    <img src="http://i.imgur.com/6nQKPdE.jpg" alt="happy pitbull" width=60%>
+  </div>
+
+  <div id='stalemate-display'>
+    <h2>Nobody wins.</h2>
+  </div>
 
   <div class='container' id='game-board'>
     <div class="row top">
@@ -87,14 +93,6 @@
   </div>
 
   <!-- <button type='submit' id='restart' class='btn btn-default'>Restart Game</button> -->
-
-  <form id="create-game">
-      <input class="btn btn-lg reset-button" type="submit" name="submit" value="Start New Game">
-  </form>
-
-  <form id="get-games">
-      <input class="btn btn-lg btn-danger reset-button" type="submit" name="submit" value="Get Game Stats">
-  </form>
 
   <div class='game-stats'>
       <table class="stats-table">
@@ -123,19 +121,16 @@
     </form>
   </div> -->
 
-  <div id='win-display'>
-    <h2 id='winner'></h2>
-    <img src="http://i.imgur.com/6nQKPdE.jpg" alt="happy pitbull" width=60%>
-  </div>
+  <form id="create-game">
+        <input class="btn btn-default" type="submit" name="submit" value="Start New Game">
+  </form>
 
-  <div id='stalemate-display'>
-    <h2>Nobody wins.</h2>
-  </div>
+  <form id="get-games">
+      <input class="btn btn-default" type="submit" name="submit" value="Get Game Stats">
+  </form>
 
   <form class="accounts" id='account-signout'>
-    <div class='form-group'>
       <button type="submit" id='signout' class='btn btn-default'>Sign Out</button>
-    </div>
   </form>
 
   <button type='submit' id='reveal-new-account' class='btn btn-default'>Sign up for new account</button>

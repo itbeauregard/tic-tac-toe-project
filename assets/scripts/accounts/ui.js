@@ -20,15 +20,13 @@ const onLoginSuccess = function (data) {
   login()
   app.user = data.user
   $('#login-error').hide()
+  $('#create-account-success').hide()
   // Welcome the user
 }
 
 const onLoginError = function (response) {
   console.log(response)
   $('#login-error').show()
-  // add a warning that says the login id does not exist
-  // add warning if login password is incorrect
-  // reset to login page
 }
 
 const onChangePasswordSuccess = function () {
@@ -42,9 +40,21 @@ const onChangePasswordError = function (response) {
   $('#password-error').show()
 }
 
-const onCreateSuccess = function (data) {
+const onCreateAccountSuccess = function (data) {
   console.log(data)
   console.log(data.account)
+  $('#create-account-success').show()
+  // Added to remove error message in case of user error
+  $('#create-account-error').hide()
+  $('#create-account').hide()
+  $('#account-login').show()
+  $('#reveal-change-password').show()
+  $('#reveal-new-account').show()
+}
+
+const onCreateAccountError = function (response) {
+  console.log(response)
+  $('#create-account-error').show()
 }
 
 const onSignOutSuccess = function () {
@@ -91,6 +101,16 @@ const onGetGamesSuccess = function (data) {
   })
 }
 
+const onUpdateGameStateSuccess = function (data) {
+  console.log(data)
+  console.log('onUpdateGameStateSuccess from ui.js ran!')
+  // TODO If the game is over, update the win tally
+}
+
+const onError = function (response) {
+  console.error(response)
+}
+
 // const onGetGameSuccess = function (data) {
 //   console.log(data)
 //   console.log('onGetGameSuccess from ui.js ran!')
@@ -102,15 +122,6 @@ const onGetGamesSuccess = function (data) {
 //   console.log('onJoinGameSuccess from ui.js ran!')
 // }
 
-const onUpdateGameStateSuccess = function (data) {
-  console.log(data)
-  console.log('onUpdateGameStateSuccess from ui.js ran!')
-  // TODO If the game is over, update the win tally
-}
-
-const onError = function (response) {
-  console.error(response)
-}
 // const onJoinGameSuccess = (data) => {
 //   app.user = data.user
 //   app.game = data.game
@@ -153,7 +164,8 @@ module.exports = {
   onLoginError,
   onChangePasswordSuccess,
   onChangePasswordError,
-  onCreateSuccess,
+  onCreateAccountSuccess,
+  onCreateAccountError,
   onSignOutSuccess,
   onCreateGameSuccess,
   onGetGamesSuccess,

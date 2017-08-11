@@ -13,7 +13,6 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const onLogin = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('data is ' + data)
   api.loginAccount(data)
     .then(ui.onLoginSuccess)
     .catch(ui.onLoginError)
@@ -32,12 +31,15 @@ const onChangePassword = function (event) {
 const onCreateAccount = function (event) {
   // Prevents page refresh
   event.preventDefault()
-  console.log('onCreateAccount from events.js ran!')
   const data = getFormFields(this)
-  console.log('data is ' + data)
-  api.createAccount(data)
-    .then(ui.onCreateSuccess)
-    .catch(ui.onError)
+  // Test that the passwords match
+  if (data.credentials.password !== data.credentials.password_confirmation) {
+    ui.onCreateAccountError("passwords don't match")
+  } else {
+    api.createAccount(data)
+      .then(ui.onCreateAccountSuccess)
+      .catch(ui.onCreateAccountError)
+  }
 }
 
 const onSignOut = function (event) {
@@ -49,7 +51,6 @@ const onSignOut = function (event) {
 
 const onCreateGame = function (event) {
   event.preventDefault()
-  console.log('createGame from events.js ran!')
   const data = getFormFields(event.target)
   api.createGame(data)
     .then(ui.onCreateGameSuccess)
@@ -58,9 +59,15 @@ const onCreateGame = function (event) {
 
 const onGetGames = function (event) {
   event.preventDefault()
-  console.log('onGetGames from events.js ran!')
   api.getGames()
     .then(ui.onGetGamesSuccess)
+    .catch(ui.onError)
+}
+
+const onUpdateGameState = function (data) {
+  event.preventDefault()
+  api.updateGameState(data)
+    .then(ui.onUpdateGameStateSuccess)
     .catch(ui.onError)
 }
 //
@@ -79,14 +86,6 @@ const onGetGames = function (event) {
 //     .then(ui.onJoinGameSuccess)
 //     .catch(ui.onError)
 // }
-
-const onUpdateGameState = function (data) {
-  event.preventDefault()
-  console.log('onUpdateGameState from event.js ran!')
-  api.updateGameState(data)
-    .then(ui.onUpdateGameStateSuccess)
-    .catch(ui.onError)
-}
 
 module.exports = {
   onLogin,

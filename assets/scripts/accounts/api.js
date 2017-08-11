@@ -17,8 +17,6 @@ const loginAccount = function (data) {
 }
 
 const changePassword = function (data) {
-  console.log(data)
-  console.log(app.user)
   return $.ajax({
     url: app.host + '/change-password/' + app.user.id,
     method: 'PATCH',
@@ -30,7 +28,6 @@ const changePassword = function (data) {
 }
 
 const createAccount = function (data) {
-  console.log('createAccount from api.js ran!')
   return $.ajax({
     url: app.host + '/sign-up',
     method: 'POST',
@@ -55,10 +52,6 @@ const signOut = function () {
 }
 
 const createGame = function (data) {
-  console.log('createGame from api.js ran!')
-  console.log(app.user)
-  console.log(app.host)
-  console.log(app.user.token)
   return $.ajax({
     url: app.host + '/games',
     method: 'POST',
@@ -69,14 +62,31 @@ const createGame = function (data) {
   })
 }
 
-// Where am I getting data if not from form fields?
 const getGames = function () {
-  console.log('getGames from api.js ran!')
   return $.ajax({
     url: app.host + '/games',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const updateGameState = function (data) {
+  return $.ajax({
+    url: app.host + '/games/' + app.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': data.index,
+          'value': data.value
+        },
+        'over': data.over
+      }
     }
   })
 }
@@ -101,26 +111,6 @@ const getGames = function () {
 //   })
 // }
 
-const updateGameState = function (data) {
-  console.log('updateGameState from api.js ran!')
-  console.log(data)
-  return $.ajax({
-    url: app.host + '/games/' + app.game.id,
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + app.user.token
-    },
-    data: {
-      'game': {
-        'cell': {
-          'index': data.index,
-          'value': data.value
-        },
-        'over': data.over
-      }
-    }
-  })
-}
 
 module.exports = {
   loginAccount,
