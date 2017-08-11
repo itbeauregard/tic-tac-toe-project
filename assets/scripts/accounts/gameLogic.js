@@ -76,7 +76,6 @@ const markCell = function (index) {
       $('#stalemate-display').show()
       data.over = true
     }
-    console.log(data)
     gameEvents.onUpdateGameState(data)
   }
 }
