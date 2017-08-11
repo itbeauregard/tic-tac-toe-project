@@ -31,7 +31,7 @@ $(() => {
   $('#create-game').on('submit', accountEvents.onCreateGame)
   $('#get-games').on('submit', accountEvents.onGetGames)
 
-  // gameLogic.loginScreen()
+  gameLogic.loginScreen()
 
   // $('#game-board').show()
 

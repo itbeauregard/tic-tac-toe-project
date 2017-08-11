@@ -9,6 +9,7 @@ const config = require('../config.js')
 const login = function () {
   $('#account-login').hide()
   $('#reveal-new-account').hide()
+  $('#change-password').hide()
   $('#create-game').show()
   $('#reveal-change-password').show()
 }
@@ -57,12 +58,21 @@ const onCreateGameSuccess = function (data) {
   console.log('createGameSuccess from ui.js ran!')
   app.game = data.game
   app.game.id = data.game.id
+  $('#password-success').hide()
 }
 
 const onGetGamesSuccess = function (data) {
   console.log(data)
   console.log('onGetGamesSuccess from ui.js ran!')
   // hide everything except the game stats
+  // presuming that we can only click button from game board screen,
+  //   victory or stalemate screen
+  $('#reveal-change-password').hide()
+  $('#stalemate-display').hide()
+  $('#win-display').hide()
+  $('#game-board').hide()
+  $('#get-games').hide()
+  $('.game-stats').show()
   // create variable to store game data array
 
   const gameArray = data.games

@@ -92,10 +92,11 @@ const loginScreen = function () {
   $('#game-board').hide()
   $('#restart').hide()
   $('#create-game').hide()
-  $('#game-buttons').hide()
   $('#login-error').hide()
   $('#password-error').hide()
   $('#password-success').hide()
+  $('.game-stats').hide()
+  $('#get-games').hide()
 }
 
 // Hides the login buttons and form, then shows the game board with a restart button
@@ -120,6 +121,9 @@ const createGame = function () {
   $('#win-display').hide()
   $('#stalemate-display').hide()
   $('#game-board').show()
+  $('#get-games').show()
+  $('.game-stats').hide()
+  $('td').empty()
 }
 
 const signOut = function () {
