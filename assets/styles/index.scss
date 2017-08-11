@@ -8,9 +8,9 @@ body {
   text-align: center;
 }
 
-// div {
-//   border: $border-style;
-// }
+div {
+  border: $border-style;
+}
 
 h1 {
   font-family: 'Plaster', sans-serif;
@@ -28,6 +28,18 @@ input {
   border-radius: 30px;
   height: 30px;
   margin-top: 10px;
+}
+
+th {
+  border: $border-style;
+  font-family: 'Plaster', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  width: 300px;
+}
+
+td {
+  font-size: 15px;
 }
 
 .error {
@@ -55,8 +67,7 @@ input {
   border-left: $border-style;
 }
 
-.container,
-.score-board {
+.container {
   margin-top: 20px;
   width: 305px;
 }
@@ -69,8 +80,10 @@ input {
   width: 100px;
 }
 
-.score-board {
+.game-stats,
+.stats-table {
   margin: auto;
+  width: 605;
 }
 
 .box {
